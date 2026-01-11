@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Header from "./components/Header";
 import SeoSchema from "./components/SeoSchema";
 import "./globals.css";
 
@@ -79,6 +80,7 @@ export default function RootLayout({
         className={`${inter.className} antialiased`}
       >
         <SeoSchema />
+        <Header />
         {children}
       </body>
     </html>
