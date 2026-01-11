@@ -75,7 +75,7 @@ const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden">
+    <section id='hero' className="min-h-screen bg-black text-white relative overflow-hidden">
       {/* Hero Content */}
       <div className="relative pt-32 pb-20 px-6 mt-20">
         <div className="max-w-6xl mx-auto text-center">
@@ -130,7 +130,7 @@ const HeroSection: React.FC = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#d4ff00]/5 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/4 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-3xl"></div>
       </div>
-    </div>
+    </section>
   );
 };
 
