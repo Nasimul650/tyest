@@ -1,8 +1,8 @@
 'use client'
 import { gsap } from 'gsap';
 import React, { useEffect, useRef } from 'react';
-import Button from './Button';
-import LogoMarquee from './LogoMarquee';
+import LogoMarquee from './ui/LogoMarquee';
+import Button from './ui/Button';
 
 
 const HeroSection: React.FC = () => {
