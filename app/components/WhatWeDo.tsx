@@ -36,10 +36,11 @@ export default function WhatWeDo(): React.JSX.Element {
             className="lg:col-span-7 relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-yellow-900/20 to-green-900/20 p-6 md:p-8 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:shadow-xl hover:shadow-accent-primary/5"
           >
             {/* Badge */}
-            <div className="mb-4 md:mb-6">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium bg-white/10 border border-white/20 rounded-full">
-                <Users color="#cf0"/>
+            <div className="mb-4 gap-x-3 flex items-center  md:mb-6">
+              <span className="inline-flex items-center gap-2 px-3 py-2.5 text-xs font-medium bg-white/10 border border-white/20 rounded-[12px]">
+                <Users color="#cf0" />
               </span>
+              <div className="text-[#cf0]">Service</div>
             </div>
 
             {/* Title */}
@@ -85,22 +86,11 @@ export default function WhatWeDo(): React.JSX.Element {
             className="lg:col-span-5 relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-blue-900/20 to-teal-900/20 p-6 md:p-8 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:shadow-xl hover:shadow-accent-primary/5"
           >
             {/* Badge */}
-            <div className="mb-4 md:mb-6">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium bg-white/10 border border-white/20 rounded-full">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  className="text-accent-primary"
-                >
-                  <path
-                    d="M8 0L10.5 5.5L16 8L10.5 10.5L8 16L5.5 10.5L0 8L5.5 5.5L8 0Z"
-                    fill="currentColor"
-                  />
-                </svg>
-                Service
+            <div className="mb-4 gap-x-3 flex items-center  md:mb-6">
+              <span className="inline-flex items-center gap-2 px-3 py-2.5 text-xs font-medium bg-white/10 border border-white/20 rounded-[12px]">
+                <Users color="#cf0" />
               </span>
+              <div className="text-[#cf0]">Service</div>
             </div>
 
             {/* Title */}
@@ -133,11 +123,11 @@ export default function WhatWeDo(): React.JSX.Element {
             className="lg:col-span-5 relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-green-900/20 to-yellow-900/20 p-6 md:p-8 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:shadow-xl hover:shadow-accent-primary/5"
           >
             {/* Badge */}
-            <div className="mb-4 md:mb-6">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium bg-white/10 border border-white/20 rounded-full">
-              <BadgeCheck color="#cf0"/>
-                Service
+            <div className="mb-4 gap-x-3 flex items-center  md:mb-6">
+              <span className="inline-flex items-center gap-2 px-3 py-2.5 text-xs font-medium bg-white/10 border border-white/20 rounded-[12px]">
+                <BadgeCheck color="#cf0" />
               </span>
+              <div className="text-[#cf0]">Service</div>
             </div>
 
             {/* Title */}
@@ -173,7 +163,7 @@ export default function WhatWeDo(): React.JSX.Element {
                 </div>
               </div>
             </div>
-        
+
             <Button size="md">Contact us</Button>
           </div>
 
@@ -182,11 +172,11 @@ export default function WhatWeDo(): React.JSX.Element {
             className="lg:col-span-7 relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-lime-900/20 to-green-900/20 p-6 md:p-8 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:shadow-xl hover:shadow-accent-primary/5"
           >
             {/* Badge */}
-            <div className="mb-4 md:mb-6">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium bg-white/10 border border-white/20 rounded-full">
-               <Sparkles color="#cf0"/>
-                Digital Marketing
+            <div className="mb-4 gap-x-3 flex items-center  md:mb-6">
+              <span className="inline-flex items-center gap-2 px-3 py-2.5 text-xs font-medium bg-white/10 border border-white/20 rounded-[12px]">
+               <Sparkles color="#cf0" />
               </span>
+              <div className="text-[#cf0]">Digital Marketing</div>
             </div>
 
             {/* Title */}
