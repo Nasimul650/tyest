@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HeroSection from "./components/Hero";
+import WhyChoose from "./components/WhyChoose";
 
 export const generateMetadata = (): Metadata => {
   return {
@@ -17,8 +18,9 @@ export const generateMetadata = (): Metadata => {
 
 export default function Home() {
   return (
-    <div className="text-4xl text-center">
+    <div>
       <HeroSection />
+      <WhyChoose/>
     </div>
   );
 }
