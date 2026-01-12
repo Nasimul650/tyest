@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HeroSection from "./components/Hero";
 import WhyChoose from "./components/WhyChoose";
+import WhatWeDo from "./components/WhatWeDo";
 
 export const generateMetadata = (): Metadata => {
   return {
@@ -20,6 +21,7 @@ export default function Home() {
   return (
     <div>
       <HeroSection />
+      <WhatWeDo />
       <WhyChoose/>
     </div>
   );
