@@ -212,45 +212,45 @@ export default function WhyChoose(): React.JSX.Element {
                   </div>
 
                   {/* Algorize Column */}
-                  <div className="flex flex-col items-center justify-center py-4 px-4 bg-gradient-to-r from-lime-500/10 to-transparent border-l-2 border-lime-500/50">
+                  <div className="flex gap-x-2 items-center justify-center py-4 px-4 bg-gradient-to-r from-lime-500/10 to-transparent border-l-2 border-lime-500/50">
                     <CircleCheckBig color="#cf0" className="w-5 h-5 mb-2" />
-                    <span className="text-sm text-center font-medium">
+                    <span className="text-[12px] text-[#fff] leading-4 text-center font-medium">
                       {row.algorize.text}
                     </span>
                   </div>
 
                   {/* Typical Agencies Column */}
-                  <div className="flex flex-col items-center justify-center py-4 px-4 bg-white/5">
+                  <div className="flex gap-x-2 items-center justify-center py-4 px-4 bg-white/5">
                     {row.typicalAgencies.positive ? (
                       <CircleCheckBig color="#cf0" className="w-5 h-5 mb-2" />
                     ) : (
                       <CircleX className="w-3 h-3 text-red-400 mb-2" />
                     )}
-                    <span className="text-sm text-center text-gray-300">
+                    <span className="text-[12px] text-[#fff] leading-4 text-center font-medium">
                       {row.typicalAgencies.text}
                     </span>
                   </div>
 
                   {/* Full-time Designer Column */}
-                  <div className="flex flex-col items-center justify-center py-4 px-4 bg-white/5">
+                  <div className="flex gap-x-2 items-center justify-center py-4 px-4 bg-white/5">
                     {row.fullTimeDesigner.positive ? (
                       <CircleCheckBig color="#cf0" className="w-5 h-5 mb-2" />
                     ) : (
                       <CircleX className="w-3 h-3 text-red-400 mb-2" />
                     )}
-                    <span className="text-sm text-center text-gray-300">
+                    <span className="text-[12px] text-[#fff] leading-4 text-center font-medium">
                       {row.fullTimeDesigner.text}
                     </span>
                   </div>
 
                   {/* Freelancers Column */}
-                  <div className="flex flex-col items-center justify-center py-4 px-4 bg-white/5">
+                  <div className="flex gap-x-2 justify-center items-center justify-center py-4 px-4 bg-white/5">
                     {row.freelancers.positive ? (
                       <CircleCheckBig color="#cf0" className="w-5 h-5 mb-2" />
                     ) : (
                       <CircleX className="w-3 h-3 text-red-400 mb-2" />
                     )}
-                    <span className="text-sm text-center text-gray-300">
+                    <span className="text-[12px] text-[#fff] leading-4 text-center font-medium">
                       {row.freelancers.text}
                     </span>
                   </div>
