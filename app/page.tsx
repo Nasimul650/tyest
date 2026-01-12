@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import FeatureProblemSection from "./components/FeatureProblemSection";
 import FeaturedProjects from "./components/FeatureProjects";
 import HeroSection from "./components/Hero";
 
@@ -10,17 +11,17 @@ export const generateMetadata = (): Metadata => {
     openGraph: {
       title: "Creative Web Design & Animation",
       description:
-        "High-performance digital experiences built with Next.js and GSAP."
+        "High-performance digital experiences built with Next.js and GSAP.",
     },
   };
 };
-
 
 export default function Home() {
   return (
     <div className="text-4xl text-center">
       <HeroSection />
       <FeaturedProjects />
+      <FeatureProblemSection />
     </div>
   );
 }

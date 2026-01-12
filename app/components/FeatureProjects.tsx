@@ -48,7 +48,7 @@ const FeaturedProjects: React.FC = () => {
       className="relative bg-black py-20 px-6 overflow-hidden text-left"
     >
       {/* Dark Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-950/30 via-black to-blue-950/30"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-950/30 via-black to-blue-990/30"></div>
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-purple-900/20 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-blue-900/20 rounded-full blur-3xl"></div>
 
@@ -64,13 +64,13 @@ const FeaturedProjects: React.FC = () => {
         </div>
 
         {/* Top Row - Moving Left with Tilt */}
-        <div className="relative mb-8 overflow-visible -rotate-3 transform">
+        <div className="relative mb-8 overflow-visible md:-rotate-3 transform">
           <div className="overflow-hidden relative">
             {/* Left Shadow */}
-            <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-black via-black/80 to-transparent z-10 pointer-events-none hidden md:block"></div>
 
             {/* Right Shadow */}
-            <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-black via-black/80 to-transparent z-10 pointer-events-none hidden md:block"></div>
 
             <div ref={topRowRef} className="flex gap-8 w-max">
               {[...projects, ...projects, ...projects].map((project, index) => (
@@ -86,13 +86,13 @@ const FeaturedProjects: React.FC = () => {
         </div>
 
         {/* Bottom Row - Moving Right with Opposite Tilt */}
-        <div className="relative mb-16 overflow-visible -rotate-3 transform">
+        <div className="relative mb-16 overflow-visible md:-rotate-3 transform">
           <div className="overflow-hidden relative">
             {/* Left Shadow */}
-            <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-black via-black/80 to-transparent z-10 pointer-events-none hidden md:block"></div>
 
             {/* Right Shadow */}
-            <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-black via-black/80 to-transparent z-10 pointer-events-none hidden md:block"></div>
 
             <div
               ref={bottomRowRef}
