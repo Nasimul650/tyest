@@ -10,6 +10,7 @@ import {
   CircleCheckBig
 } from "lucide-react";
 import AnimatedMarquee from "./AnimatedMarquee";
+import Button from "./Button";
 
 interface ComparisonRow {
   feature: string;
@@ -262,6 +263,11 @@ export default function WhyChoose(): React.JSX.Element {
           </div>
         </div>
       </section>
+
+
+      <div className="w-full flex justify-center">
+        <Button size="lg">Get Started</Button>
+      </div>
 
       <AnimatedMarquee />
     </>
