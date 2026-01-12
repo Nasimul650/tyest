@@ -1,12 +1,5 @@
-import {
-  Feature,
-  ProcessStep,
-  PricingPlan,
-  Testimonial,
-  FAQ,
-  NavigationItem,
-  Project,
-} from '@/types';
+import { FAQ, Feature, NavigationItem, PricingPlan, ProcessStep, Project, Testimonial } from "../types";
+
 
 export const navigationItems: NavigationItem[] = [
   { label: 'Our Services', href: '#features' },

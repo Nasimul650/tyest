@@ -1,14 +1,36 @@
 import Image from "next/image";
 import { useState } from "react";
 
+interface Category {
+  id: number;
+  name: string;
+  slug: string;
+  description: string | null;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string | null;
+}
+
 interface ProjectCardProps {
   previewImage: string;
   title: string;
   description: string;
   client: string;
-  categories: string[];
+  categories: Category[];
   features: Array<{ title: string; description: string }>;
-  technologies: string[];
+  technologies: Array<{
+    id: number;
+    name: string;
+    category: string;
+    icon: string;
+    description: string;
+    type: string;
+    experience: string;
+    projects: number;
+    createdAt: string;
+    updatedAt: string;
+    deletedAt: string | null;
+  }>;
   date: string;
 }
 

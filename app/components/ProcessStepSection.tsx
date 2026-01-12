@@ -80,8 +80,8 @@ export default function ProcessStepSection() {
         },
       });
 
-      gsap.utils.toArray(".step-card").forEach((card, index) => {
-        gsap.from(card, {
+      gsap.utils.toArray<Element>(".step-card").forEach((card, index) => {
+        gsap.from(card as gsap.TweenTarget, {
           x: index % 2 === 0 ? -120 : 120,
           opacity: 0,
           duration: 0.9,
@@ -127,7 +127,13 @@ export default function ProcessStepSection() {
           <div className="absolute left-1/2 top-0 bottom-0 w-px border-l-2 border-dotted border-zinc-700 hidden md:block" />
 
           {steps.map((step, index) => (
-            <StepCard key={index} {...step} />
+            <StepCard 
+              key={index} 
+              number={String(index + 1).padStart(2, '0')}
+              title={step.title}
+              description={step.description}
+              position={index % 2 === 0 ? 'left' : 'right'}
+            />
           ))}
         </div>
 

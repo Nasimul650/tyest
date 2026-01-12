@@ -10,7 +10,7 @@ import Button from "./ui/Button";
 gsap.registerPlugin(ScrollTrigger);
 
 const Header = () => {
-  const navRef = useRef<HTMLElement>(null);
+  const navRef = useRef<HTMLDivElement>(null);
   const hoverBgRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<HTMLDivElement>(null);
 

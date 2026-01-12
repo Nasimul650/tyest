@@ -10,7 +10,7 @@ import {
   CircleCheckBig
 } from "lucide-react";
 import AnimatedMarquee from "./AnimatedMarquee";
-import Button from "./Button";
+import Button from "./ui/Button";
 
 interface ComparisonRow {
   feature: string;
