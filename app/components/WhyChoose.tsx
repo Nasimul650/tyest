@@ -6,7 +6,7 @@ import {
   Award, 
   TrendingUp, 
   DollarSign,
-  X,
+  CircleX,
   CircleCheckBig
 } from "lucide-react";
 
@@ -37,7 +37,7 @@ const comparisonData: ComparisonRow[] = [
     icon: <Zap size={20} color="#cf0" className="w-5 h-5 " />,
     algorize: { text: "Quick turnaround", positive: true },
     typicalAgencies: { text: "Slow, multi-step", positive: false },
-    fullTimeDesigner: { text: "Uncertain", positive: false },
+    fullTimeDesigner: { text: "Uncertain", positive: true },
     freelancers: { text: "Unpredictable timing", positive: false },
   },
   {
@@ -130,7 +130,7 @@ export default function WhyChoose(): React.JSX.Element {
                     {row.typicalAgencies.positive ? (
                       <CircleCheckBig color="#cf0" className="w-4 h-4" />
                     ) : (
-                      <X className="w-4 h-4 text-red-400" />
+                      <CircleX className="w-3 h-3 text-red-400" />
                     )}
                   </div>
                   <p className="text-sm mt-1 text-gray-300">{row.typicalAgencies.text}</p>
@@ -145,7 +145,7 @@ export default function WhyChoose(): React.JSX.Element {
                     {row.fullTimeDesigner.positive ? (
                       <CircleCheckBig color="#cf0" className="w-4 h-4" />
                     ) : (
-                      <X className="w-4 h-4 text-red-400" />
+                      <CircleX className="w-3 h-3 text-red-400" />
                     )}
                   </div>
                   <p className="text-sm mt-1 text-gray-300">{row.fullTimeDesigner.text}</p>
@@ -160,7 +160,7 @@ export default function WhyChoose(): React.JSX.Element {
                     {row.freelancers.positive ? (
                       <CircleCheckBig color="#cf0"  className="w-4 h-4" />
                     ) : (
-                      <X className="w-4 h-4 text-red-400" />
+                      <CircleX className="w-3 h-3 text-red-400" />
                     )}
                   </div>
                   <p className="text-sm mt-1 text-gray-300">{row.freelancers.text}</p>
@@ -224,7 +224,7 @@ export default function WhyChoose(): React.JSX.Element {
                     {row.typicalAgencies.positive ? (
                       <CircleCheckBig color="#cf0" className="w-5 h-5 mb-2" />
                     ) : (
-                      <X className="w-5 h-5 text-red-400 mb-2" />
+                      <CircleX className="w-3 h-3 text-red-400 mb-2" />
                     )}
                     <span className="text-sm text-center text-gray-300">
                       {row.typicalAgencies.text}
@@ -236,7 +236,7 @@ export default function WhyChoose(): React.JSX.Element {
                     {row.fullTimeDesigner.positive ? (
                       <CircleCheckBig color="#cf0" className="w-5 h-5 mb-2" />
                     ) : (
-                      <X className="w-5 h-5 text-red-400 mb-2" />
+                      <CircleX className="w-3 h-3 text-red-400 mb-2" />
                     )}
                     <span className="text-sm text-center text-gray-300">
                       {row.fullTimeDesigner.text}
@@ -248,7 +248,7 @@ export default function WhyChoose(): React.JSX.Element {
                     {row.freelancers.positive ? (
                       <CircleCheckBig color="#cf0" className="w-5 h-5 mb-2" />
                     ) : (
-                      <X className="w-5 h-5 text-red-400 mb-2" />
+                      <CircleX className="w-3 h-3 text-red-400 mb-2" />
                     )}
                     <span className="text-sm text-center text-gray-300">
                       {row.freelancers.text}
