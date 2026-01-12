@@ -213,7 +213,7 @@ export default function WhyChoose(): React.JSX.Element {
 
                   {/* Algorize Column */}
                   <div className="flex gap-x-2 items-center justify-center py-4 px-4 bg-gradient-to-r from-lime-500/10 to-transparent border-l-2 border-lime-500/50">
-                    <CircleCheckBig color="#cf0" className="w-5 h-5 mb-2" />
+                    <CircleCheckBig color="#cf0" className="w-5 h-5" />
                     <span className="text-[12px] text-[#fff] leading-4 text-center font-medium">
                       {row.algorize.text}
                     </span>
@@ -222,9 +222,9 @@ export default function WhyChoose(): React.JSX.Element {
                   {/* Typical Agencies Column */}
                   <div className="flex gap-x-2 items-center justify-center py-4 px-4 bg-white/5">
                     {row.typicalAgencies.positive ? (
-                      <CircleCheckBig color="#cf0" className="w-5 h-5 mb-2" />
+                      <CircleCheckBig color="#cf0" className="w-5 h-5" />
                     ) : (
-                      <CircleX className="w-3 h-3 text-red-400 mb-2" />
+                      <CircleX className="w-5 h-5 text-red-400" />
                     )}
                     <span className="text-[12px] text-[#fff] leading-4 text-center font-medium">
                       {row.typicalAgencies.text}
@@ -234,9 +234,9 @@ export default function WhyChoose(): React.JSX.Element {
                   {/* Full-time Designer Column */}
                   <div className="flex gap-x-2 items-center justify-center py-4 px-4 bg-white/5">
                     {row.fullTimeDesigner.positive ? (
-                      <CircleCheckBig color="#cf0" className="w-5 h-5 mb-2" />
+                      <CircleCheckBig color="#cf0" className="w-5 h-5" />
                     ) : (
-                      <CircleX className="w-3 h-3 text-red-400 mb-2" />
+                      <CircleX className="w-5 h-5 text-red-400" />
                     )}
                     <span className="text-[12px] text-[#fff] leading-4 text-center font-medium">
                       {row.fullTimeDesigner.text}
@@ -244,11 +244,11 @@ export default function WhyChoose(): React.JSX.Element {
                   </div>
 
                   {/* Freelancers Column */}
-                  <div className="flex gap-x-2 justify-center items-center justify-center py-4 px-4 bg-white/5">
+                  <div className="flex gap-x-2 items-center justify-center py-4 px-4 bg-white/5">
                     {row.freelancers.positive ? (
-                      <CircleCheckBig color="#cf0" className="w-5 h-5 mb-2" />
+                      <CircleCheckBig color="#cf0" className="w-5 h-5" />
                     ) : (
-                      <CircleX className="w-3 h-3 text-red-400 mb-2" />
+                      <CircleX className="w-5 h-5 text-red-400" />
                     )}
                     <span className="text-[12px] text-[#fff] leading-4 text-center font-medium">
                       {row.freelancers.text}
