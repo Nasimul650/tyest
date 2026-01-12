@@ -2,9 +2,9 @@
 
 import gsap from "gsap";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const IMAGES: string[] = [
+const IMAGES = [
   "/assets/logo1.svg",
   "/assets/logo2.svg",
   "/assets/logo3.svg",
@@ -12,59 +12,80 @@ const IMAGES: string[] = [
   "/assets/logo5.svg",
 ];
 
-const MARQUEE_SPEED = 40; // seconds
+const SPEED = 80; // Pixels per second
 
-function startMarquee(track: HTMLDivElement) {
-  const totalWidth = track.scrollWidth / 2;
+export default function LogoMarquee() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [duration, setDuration] = useState(0);
 
-  gsap.to(track, {
-    x: -totalWidth,
-    duration: MARQUEE_SPEED,
-    ease: "none",
-    repeat: -1,
-    modifiers: {
-      x: (x) => `${parseFloat(x) % totalWidth}px`,
-    },
-  });
-}
-
-export default function LogoMarquee(): React.JSX.Element {
-  const trackRef = useRef<HTMLDivElement | null>(null);
+  // 1. Ensure we have enough logos to fill the screen width + buffer.
+  // We repeat the base list a few times to make the "base content" wide enough.
+  const REPEAT_COUNT = 4;
+  const logoSet = Array(REPEAT_COUNT).fill(IMAGES).flat();
 
   useEffect(() => {
-    if (!trackRef.current) return;
+    const context = gsap.context(() => {
+      const container = containerRef.current;
+      if (!container) return;
 
-    startMarquee(trackRef.current);
+      // 2. Measure width to calculate accurate duration based on SPEED
+      // The content is duplicated (x2) in the render, so we measure the full width
+      // and divide by 2 to get the distance of one full loop.
+      const fullWidth = container.offsetWidth;
+      const oneLoopDistance = fullWidth / 2;
 
-    return () => {
-      gsap.killTweensOf(trackRef.current);
-    };
+      // Calculate time: t = d / v
+      const calculatedDuration = oneLoopDistance / SPEED;
+
+      // Update state to trigger re-render with correct animation time?
+      // No, GSAP handles this better directly.
+
+      // 3. The Animation
+      // Animate from 0% to -50% (the end of the first set)
+      gsap.to(container, {
+        xPercent: -50,
+        repeat: -1,
+        duration: calculatedDuration,
+        ease: "none", // Linear movement is crucial for marquee
+      });
+    }, containerRef);
+
+    return () => context.revert(); // Cleanup on unmount
   }, []);
 
   return (
-    <section className="overflow-hidden pb-16">
-      <div className="relative w-full">
-        <div
-          ref={trackRef}
-          className="flex w-max items-center gap-24"
-        >
-          {[...IMAGES, ...IMAGES].map((src, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-center opacity-80 hover:opacity-100 transition"
-            >
-              <Image
-                src={src}
-                alt="Partner logo"
-                width={190}
-                height={140}
-                className="object-contain"
-                loading="lazy"
-              />
-            </div>
-          ))}
+    <section className="overflow-hidden bg-black py-16">
+      <div className="relative w-full select-none">
+        {/* The Track */}
+        <div ref={containerRef} className="flex w-fit will-change-transform">
+          {/* Render Set 1 */}
+          <LogoList logos={logoSet} />
+          {/* Render Set 2 (The seamless clone) */}
+          <LogoList logos={logoSet} />
         </div>
       </div>
     </section>
+  );
+}
+
+// Sub-component to keep JSX clean
+function LogoList({ logos }: { logos: string[] }) {
+  return (
+    <div className="flex shrink-0 items-center gap-24 px-12">
+      {logos.map((src, i) => (
+        <div
+          key={i} // In a real app, use a unique ID if possible, but index is okay here
+          className="relative flex h-[80px] w-[180px] shrink-0 items-center justify-center opacity-80 transition-opacity hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300"
+        >
+          <Image
+            src={src}
+            alt="company logo"
+            fill
+            sizes="180px"
+            className="object-contain"
+          />
+        </div>
+      ))}
+    </div>
   );
 }

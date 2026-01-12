@@ -106,7 +106,7 @@ const FeatureProblemSection: React.FC = () => {
         <div className="flex flex-col md:flex-row items-start justify-between mb-6 gap-3">
           <h2
             ref={headingRef}
-            className="md:text-5xl md:text-center text-left text-[30px] font-bold text-white max-w-full leading-tight"
+            className="md:text-5xl text-left text-[30px] font-bold text-white max-w-full leading-tight"
           >
             Digital agency problems
             <br />
@@ -180,7 +180,7 @@ const FeatureProblemSection: React.FC = () => {
             <div>
               <p
                 ref={textRef}
-                className="text-gray-300 text-lg leading-relaxed"
+                className="text-gray-300 text-lg leading-relaxed text-left"
               >
                 Crafting compelling digital experiences that captivate audiences
                 and drive meaningful connections. Our digital agency combines

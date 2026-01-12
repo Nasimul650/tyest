@@ -74,8 +74,8 @@ const Header = () => {
 
       /* ---------------- Scroll Behavior ---------------- */
       ScrollTrigger.create({
-        trigger: "#hero", // 👈 hero section ID
-        start: "bottom top",
+        trigger: "#hero",
+        start: "top top",
         onEnter: () =>
           gsap.to(navRef.current, {
             backgroundColor: "rgba(0,0,0,0.3)",
@@ -86,28 +86,45 @@ const Header = () => {
           gsap.to(navRef.current, {
             backgroundColor: "transparent",
             backdropFilter: "blur(0px)",
-            duration: 0.3,
+            duration: 0.35,
+            ease: "power3.out",
           }),
       });
+    });
+    ScrollTrigger.create({
+      trigger: "#hero",
+      start: "center top",
+      onEnter: () =>
+        gsap.to(navRef.current, {
+          maxWidth: "42rem",
+          duration: 0.5,
+          ease: "power2.out",
+        }),
+      onLeaveBack: () =>
+        gsap.to(navRef.current, {
+          duration: 0.5,
+          maxWidth: "56rem",
+          ease: "power3.out",
+        }),
     });
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <nav
-      ref={navRef}
-      className="fixed top-0 left-0 right-0 z-50 px-6 transition-colors"
-    >
-      <div className="relative max-w-5xl mx-auto flex items-center justify-between">
+    <nav className="fixed mx-auto z-50 px-6 py-1 transition-colors w-full">
+      <div
+        ref={navRef}
+        className="relative max-w-4xl mx-auto flex items-center justify-between rounded-full px-4 py-1 border-transparent"
+      >
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <div className="w-28 h-20 rounded-lg flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center">
             <Image
               src="/logo.png"
               alt="logo"
-              width={540}
-              height={540}
+              width={140}
+              height={140}
               className="object-cover"
               priority
             />
