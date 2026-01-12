@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { CircleCheck, CircleCheckBig } from "lucide-react";
+import { BadgeCheck, CircleCheck, CircleCheckBig, Sparkles, Users } from "lucide-react";
 import Button from "./Button";
 
 interface Feature {
@@ -38,19 +38,7 @@ export default function WhatWeDo(): React.JSX.Element {
             {/* Badge */}
             <div className="mb-4 md:mb-6">
               <span className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium bg-white/10 border border-white/20 rounded-full">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  className="text-accent-primary"
-                >
-                  <path
-                    d="M8 0L10.5 5.5L16 8L10.5 10.5L8 16L5.5 10.5L0 8L5.5 5.5L8 0Z"
-                    fill="currentColor"
-                  />
-                </svg>
-                Service
+                <Users color="#cf0"/>
               </span>
             </div>
 
@@ -147,18 +135,7 @@ export default function WhatWeDo(): React.JSX.Element {
             {/* Badge */}
             <div className="mb-4 md:mb-6">
               <span className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium bg-white/10 border border-white/20 rounded-full">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  className="text-accent-primary"
-                >
-                  <path
-                    d="M8 0L10.5 5.5L16 8L10.5 10.5L8 16L5.5 10.5L0 8L5.5 5.5L8 0Z"
-                    fill="currentColor"
-                  />
-                </svg>
+              <BadgeCheck color="#cf0"/>
                 Service
               </span>
             </div>
@@ -207,18 +184,7 @@ export default function WhatWeDo(): React.JSX.Element {
             {/* Badge */}
             <div className="mb-4 md:mb-6">
               <span className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium bg-white/10 border border-white/20 rounded-full">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  className="text-accent-primary"
-                >
-                  <path
-                    d="M8 0L10.5 5.5L16 8L10.5 10.5L8 16L5.5 10.5L0 8L5.5 5.5L8 0Z"
-                    fill="currentColor"
-                  />
-                </svg>
+               <Sparkles color="#cf0"/>
                 Digital Marketing
               </span>
             </div>
