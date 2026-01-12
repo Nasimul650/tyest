@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { CircleCheck } from "lucide-react";
+import { CircleCheck, CircleCheckBig } from "lucide-react";
 import Button from "./Button";
 
 interface Feature {
@@ -68,19 +68,19 @@ export default function WhatWeDo(): React.JSX.Element {
             <div className="mb-6 md:mb-8">
               <div className="space-y-3">
                 <div className="flex items-start gap-2.5">
-                  <CircleCheck className="w-5 h-5 text-accent-primary shrink-0 mt-0.5" />
+                  <CircleCheckBig className="w-5 h-5 text-accent-primary shrink-0 mt-0.5" />
                   <span className="text-sm md:text-base text-gray-200">
                     Ongoing updates and maintenance
                   </span>
                 </div>
                 <div className="flex items-start gap-2.5">
-                  <CircleCheck className="w-5 h-5 text-accent-primary shrink-0 mt-0.5" />
+                  <CircleCheckBig className="w-5 h-5 text-accent-primary shrink-0 mt-0.5" />
                   <span className="text-sm md:text-base text-gray-200">
                     No-code build & launch
                   </span>
                 </div>
                 <div className="flex items-start gap-2.5">
-                  <CircleCheck className="w-5 h-5 text-accent-primary shrink-0 mt-0.5" />
+                  <CircleCheckBig className="w-5 h-5 text-accent-primary shrink-0 mt-0.5" />
                   <span className="text-sm md:text-base text-gray-200">
                     No upfront development charge
                   </span>
@@ -129,11 +129,11 @@ export default function WhatWeDo(): React.JSX.Element {
             <div className="mb-6 md:mb-8">
               <div className="flex flex-wrap gap-2">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-accent-primary/20 border border-accent-primary/30 rounded-full text-accent-primary">
-                  <CircleCheck className="w-3.5 h-3.5" />
+                  <CircleCheckBig className="w-3.5 h-3.5" />
                   Professional
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-accent-primary/20 border border-accent-primary/30 rounded-full text-accent-primary">
-                  <CircleCheck className="w-3.5 h-3.5" />
+                  <CircleCheckBig className="w-3.5 h-3.5" />
                   Fast Delivery
                 </span>
               </div>
@@ -177,19 +177,19 @@ export default function WhatWeDo(): React.JSX.Element {
             <div className="mb-6 md:mb-8">
               <div className="space-y-3">
                 <div className="flex items-start gap-2.5">
-                  <CircleCheck className="w-5 h-5 text-accent-primary shrink-0 mt-0.5" />
+                  <CircleCheckBig className="w-5 h-5 text-accent-primary shrink-0 mt-0.5" />
                   <span className="text-sm md:text-base text-gray-200">
                     No upfront development charge
                   </span>
                 </div>
                 <div className="flex items-start gap-2.5">
-                  <CircleCheck className="w-5 h-5 text-accent-primary shrink-0 mt-0.5" />
+                  <CircleCheckBig className="w-5 h-5 text-accent-primary shrink-0 mt-0.5" />
                   <span className="text-sm md:text-base text-gray-200">
                     No-code build & launch
                   </span>
                 </div>
                 <div className="flex items-start gap-2.5">
-                  <CircleCheck className="w-5 h-5 text-accent-primary shrink-0 mt-0.5" />
+                  <CircleCheckBig className="w-5 h-5 text-accent-primary shrink-0 mt-0.5" />
                   <span className="text-sm md:text-base text-gray-200">
                     Ongoing updates and maintenance
                   </span>
@@ -242,7 +242,7 @@ export default function WhatWeDo(): React.JSX.Element {
                     Key Features
                   </span>
                   <div className="flex items-start gap-2.5">
-                    <CircleCheck className="w-5 h-5 text-accent-primary shrink-0 mt-0.5" />
+                    <CircleCheckBig className="w-5 h-5 text-accent-primary shrink-0 mt-0.5" />
                     <span className="text-sm md:text-base text-gray-200">
                       No upfront development charge
                     </span>
@@ -261,7 +261,7 @@ export default function WhatWeDo(): React.JSX.Element {
                     Benefits
                   </span>
                   <div className="flex items-start gap-2.5">
-                    <CircleCheck className="w-5 h-5 text-accent-primary shrink-0 mt-0.5" />
+                    <CircleCheckBig className="w-5 h-5 text-accent-primary shrink-0 mt-0.5" />
                     <span className="text-sm md:text-base text-gray-200">
                       Ongoing updates and maintenance
                     </span>
