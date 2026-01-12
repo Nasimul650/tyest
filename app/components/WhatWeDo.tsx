@@ -128,11 +128,11 @@ export default function WhatWeDo(): React.JSX.Element {
             {/* Tags */}
             <div className="mb-6 md:mb-8">
               <div className="flex flex-wrap gap-2">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-accent-primary/20 border border-accent-primary/30 rounded-full text-accent-primary">
+                <span className="inline-flex text-[#cf0] items-center gap-1.5 px-3 py-1.5 text-xs font-medium ring-1 ring-[#cf0]/30 rounded-full text-accent-primary" style={{ backgroundColor: 'oklab(0.930706 -0.124749 0.191517 / 0.2)' }}>
                   <CircleCheckBig color="#cf0" className="w-3.5 h-3.5" />
                   Professional
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-accent-primary/20 border border-accent-primary/30 rounded-full text-accent-primary">
+                <span className="inline-flex text-[#cf0] items-center gap-1.5 px-3 py-1.5 text-xs font-medium ring-1 ring-[#cf0]/30 rounded-full text-accent-primary" style={{ backgroundColor: 'oklab(0.930706 -0.124749 0.191517 / 0.2)' }}>
                   <CircleCheckBig color="#cf0" className="w-3.5 h-3.5" />
                   Fast Delivery
                 </span>
