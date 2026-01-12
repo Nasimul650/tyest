@@ -19,10 +19,10 @@ export default function WhatWeDo(): React.JSX.Element {
               What We Do
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
+          <h2 className="text-3xl md:text-5xl lg:text-[60px] lg:leading-[75px] font-bold mb-4 md:mb-6">
             What We Do
           </h2>
-          <p className="text-sm md:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto px-4">
+          <p className="text-sm md:text-[20px] text-[#b8b8b8] leading-[32px] max-w-2xl mx-auto px-4">
             Get a premium website or custom business solution
             <br className="hidden sm:block" />
             that meets your goals and drives measurable growth.
