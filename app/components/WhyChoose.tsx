@@ -113,7 +113,7 @@ export default function WhyChoose(): React.JSX.Element {
                 {/* Algorize */}
                 <div className="bg-gradient-to-r from-lime-500/20 to-transparent border-l-4 border-lime-500 p-3 rounded">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-semibold text-lime-400 uppercase tracking-wider">
+                    <span className="text-[12px] text-[#cf0] font-bold leading-4 text-lime-400 uppercase tracking-wider">
                       Algorize
                     </span>
                     <CircleCheckBig color="#cf0" className="w-4 h-4" />
@@ -175,21 +175,21 @@ export default function WhyChoose(): React.JSX.Element {
           <div className="min-w-full">
             {/* Table Header */}
             <div className="grid grid-cols-5 gap-4 mb-2">
-              <div className="text-sm font-semibold text-gray-400 uppercase tracking-wider">
+              <div className="text-[12px] text-[#cf0] font-bold leading-4 uppercase tracking-wider">
                 Feature
               </div>
               <div className="text-center">
-                <span className="text-sm font-bold text-lime-400 uppercase tracking-wider">
+                <span className="text-[12px] text-[#cf0] font-bold leading-4 uppercase tracking-wider">
                   Algorize
                 </span>
               </div>
-              <div className="text-center text-sm font-medium text-gray-400 uppercase tracking-wider">
+              <div className="text-center text-[12px] font-bold leading-4 text-gray-400 uppercase tracking-wider">
                 Typical Agencies
               </div>
-              <div className="text-center text-sm font-medium text-gray-400 uppercase tracking-wider">
+              <div className="text-center text-[12px] font-bold leading-4 text-gray-400 uppercase tracking-wider">
                 Full-time Designer
               </div>
-              <div className="text-center text-sm font-medium text-gray-400 uppercase tracking-wider">
+              <div className="text-center text-[12px] font-bold leading-4 text-gray-400 uppercase tracking-wider">
                 Freelancers
               </div>
             </div>
