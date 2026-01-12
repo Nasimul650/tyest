@@ -15,7 +15,7 @@ export default function AnimatedMarquee(): React.JSX.Element {
             <div key={i} className="flex items-center">
               {words.map((word, index) => (
                 <React.Fragment key={`${i}-${index}`}>
-                  <span className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-accent-primary px-4 md:px-6">
+                  <span className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-[#cf0] px-4 md:px-6">
                     {word}
                   </span>
                   <svg
@@ -27,7 +27,7 @@ export default function AnimatedMarquee(): React.JSX.Element {
                   >
                     <path
                       d="M20 0L25 15L40 20L25 25L20 40L15 25L0 20L15 15L20 0Z"
-                      fill="currentColor"
+                      fill="#cf0"
                     />
                   </svg>
                 </React.Fragment>
