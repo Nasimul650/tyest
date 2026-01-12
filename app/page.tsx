@@ -3,6 +3,8 @@ import FeatureProblemSection from "./components/FeatureProblemSection";
 import FeaturedProjects from "./components/FeatureProjects";
 import HeroSection from "./components/Hero";
 import ProcessStepSection from "./components/ProcessStepSection";
+import WhyChoose from "./components/WhyChoose";
+import WhatWeDo from "./components/WhatWeDo";
 
 export const generateMetadata = (): Metadata => {
   return {
@@ -19,11 +21,13 @@ export const generateMetadata = (): Metadata => {
 
 export default function Home() {
   return (
-    <div className="text-4xl text-center">
+    <div>
       <HeroSection />
       <FeaturedProjects />
       <FeatureProblemSection />
       <ProcessStepSection />
+      <WhatWeDo />
+      <WhyChoose/>
     </div>
   );
 }
