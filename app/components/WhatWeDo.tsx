@@ -37,7 +37,7 @@ export default function WhatWeDo(): React.JSX.Element {
           >
             {/* Badge */}
             <div className="mb-4 gap-x-3 flex items-center  md:mb-6">
-              <span className="inline-flex items-center gap-2 px-3 py-2.5 text-xs font-medium bg-white/10 border border-white/20 rounded-[12px]">
+              <span className="inline-flex items-center gap-2 px-3 py-2.5 text-xs font-medium border border-white/20 rounded-[12px]" style={{ backgroundColor: 'oklab(0.930706 -0.124749 0.191517 / 0.2)' }}>
                 <Users color="#cf0" />
               </span>
               <div className="text-[#cf0]">Service</div>
@@ -87,7 +87,7 @@ export default function WhatWeDo(): React.JSX.Element {
           >
             {/* Badge */}
             <div className="mb-4 gap-x-3 flex items-center  md:mb-6">
-              <span className="inline-flex items-center gap-2 px-3 py-2.5 text-xs font-medium bg-white/10 border border-white/20 rounded-[12px]">
+              <span className="inline-flex items-center gap-2 px-3 py-2.5 text-xs font-medium border border-white/20 rounded-[12px]" style={{ backgroundColor: 'oklab(0.930706 -0.124749 0.191517 / 0.2)' }}>
                 <Users color="#cf0" />
               </span>
               <div className="text-[#cf0]">Service</div>
@@ -124,7 +124,7 @@ export default function WhatWeDo(): React.JSX.Element {
           >
             {/* Badge */}
             <div className="mb-4 gap-x-3 flex items-center  md:mb-6">
-              <span className="inline-flex items-center gap-2 px-3 py-2.5 text-xs font-medium bg-white/10 border border-white/20 rounded-[12px]">
+              <span className="inline-flex items-center gap-2 px-3 py-2.5 text-xs font-medium border border-white/20 rounded-[12px]" style={{ backgroundColor: 'oklab(0.930706 -0.124749 0.191517 / 0.2)' }}>
                 <BadgeCheck color="#cf0" />
               </span>
               <div className="text-[#cf0]">Service</div>
@@ -173,7 +173,7 @@ export default function WhatWeDo(): React.JSX.Element {
           >
             {/* Badge */}
             <div className="mb-4 gap-x-3 flex items-center  md:mb-6">
-              <span className="inline-flex items-center gap-2 px-3 py-2.5 text-xs font-medium bg-white/10 border border-white/20 rounded-[12px]">
+              <span className="inline-flex items-center gap-2 px-3 py-2.5 text-xs font-medium border border-white/20 rounded-[12px]" style={{ backgroundColor: 'oklab(0.930706 -0.124749 0.191517 / 0.2)' }}>
                <Sparkles color="#cf0" />
               </span>
               <div className="text-[#cf0]">Digital Marketing</div>
