@@ -4,7 +4,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "./ui/Button";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -13,6 +13,9 @@ const Header = () => {
   const navRef = useRef<HTMLDivElement>(null);
   const hoverBgRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<HTMLDivElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -111,8 +114,26 @@ const Header = () => {
     return () => ctx.revert();
   }, []);
 
+  /* ---------------- Mobile Menu Animation ---------------- */
+  useEffect(() => {
+    if (!mobileMenuRef.current) return;
+
+    if (menuOpen) {
+      gsap.fromTo(
+        mobileMenuRef.current,
+        { opacity: 0, y: -10 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.25,
+          ease: "power2.out",
+        }
+      );
+    }
+  }, [menuOpen]);
+
   return (
-    <nav className="fixed mx-auto z-50 px-6 py-1 transition-colors w-full">
+    <nav className="fixed mx-auto z-50 px-6 py-3 transition-colors w-full">
       <div
         ref={navRef}
         className="relative max-w-4xl mx-auto flex items-center justify-between rounded-full px-4 py-1 border-transparent"
@@ -154,8 +175,45 @@ const Header = () => {
         </div>
 
         {/* CTA */}
-        <Button size="md">Book a call</Button>
+        <div className="hidden md:block">
+          <Button size="md">Book a call</Button>
+        </div>
+
+        {/* Hamburger (Mobile) */}
+        <button
+          className="md:hidden w-9 h-9 flex items-center justify-center rounded-full bg-white/10"
+          onClick={() => setMenuOpen((p) => !p)}
+          aria-label="Toggle menu"
+        >
+          <span className="block w-5 h-[2px] bg-white relative">
+            <span className="absolute left-0 top-[-6px] w-5 h-[2px] bg-white" />
+            <span className="absolute left-0 top-[6px] w-5 h-[2px] bg-white" />
+          </span>
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div
+          ref={mobileMenuRef}
+          className="md:hidden mt-3 mx-auto max-w-4xl rounded-2xl bg-black/80 backdrop-blur-xl p-6 space-y-4"
+        >
+          {["Features", "Testimonials", "Pricing", "Faq"].map((item) => (
+            <Link
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              onClick={() => setMenuOpen(false)}
+              className="block text-white text-sm px-4 py-3 rounded-lg hover:bg-white/10 transition"
+            >
+              {item}
+            </Link>
+          ))}
+
+          <Button size="md" className="w-full">
+            Book a call
+          </Button>
+        </div>
+      )}
     </nav>
   );
 };

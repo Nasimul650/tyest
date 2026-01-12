@@ -18,8 +18,6 @@ export default function LogoMarquee() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [duration, setDuration] = useState(0);
 
-  // 1. Ensure we have enough logos to fill the screen width + buffer.
-  // We repeat the base list a few times to make the "base content" wide enough.
   const REPEAT_COUNT = 4;
   const logoSet = Array(REPEAT_COUNT).fill(IMAGES).flat();
 
@@ -28,33 +26,25 @@ export default function LogoMarquee() {
       const container = containerRef.current;
       if (!container) return;
 
-      // 2. Measure width to calculate accurate duration based on SPEED
-      // The content is duplicated (x2) in the render, so we measure the full width
-      // and divide by 2 to get the distance of one full loop.
       const fullWidth = container.offsetWidth;
       const oneLoopDistance = fullWidth / 2;
 
-      // Calculate time: t = d / v
       const calculatedDuration = oneLoopDistance / SPEED;
 
-      // Update state to trigger re-render with correct animation time?
-      // No, GSAP handles this better directly.
-
-      // 3. The Animation
-      // Animate from 0% to -50% (the end of the first set)
+ 
       gsap.to(container, {
         xPercent: -50,
         repeat: -1,
         duration: calculatedDuration,
-        ease: "none", // Linear movement is crucial for marquee
+        ease: "none", 
       });
     }, containerRef);
 
-    return () => context.revert(); // Cleanup on unmount
+    return () => context.revert();
   }, []);
 
   return (
-    <section className="overflow-hidden bg-black py-16">
+    <section className="overflow-hidden bg-black py-8">
       <div className="relative w-full select-none">
         {/* The Track */}
         <div ref={containerRef} className="flex w-fit will-change-transform">

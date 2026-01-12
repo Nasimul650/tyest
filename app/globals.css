@@ -37,3 +37,14 @@ body {
 .animate-marquee {
   animation: marquee 25s linear infinite;
 }
+
+.glow-layer {
+  background: radial-gradient(
+    circle at center,
+    rgba(154, 230, 0, 0.15) 0%,
+    rgba(154, 230, 0, 0.13) 21%,
+    rgba(154, 230, 0, 0.09) 35%,
+    rgba(0, 0, 0, 0) 60%
+  );
+  opacity: 0.6;
+}
