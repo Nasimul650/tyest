@@ -28,7 +28,7 @@ function startMarquee(track: HTMLDivElement) {
   });
 }
 
-export default function LogoMarquee(): JSX.Element {
+export default function LogoMarquee(): React.JSX.Element {
   const trackRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
