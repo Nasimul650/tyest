@@ -2,81 +2,11 @@
 
 import React from "react";
 import { CircleCheck } from "lucide-react";
+import Button from "./Button";
 
 interface Feature {
   text: string;
 }
-
-interface ServiceCard {
-  badge: string;
-  title: string;
-  description: string;
-  features?: Feature[];
-  tags?: string[];
-  buttonText: string;
-  buttonColor: string;
-  gradientFrom: string;
-  gradientTo: string;
-}
-
-const services: ServiceCard[] = [
-  {
-    badge: "Service",
-    title: "UI/UX Design",
-    description:
-      "We're a full-service design agency specializing in branding, web design, and creative strategies that elevate businesses.",
-    features: [
-      { text: "Ongoing updates and maintenance" },
-      { text: "No-code build & launch" },
-      { text: "No upfront development charge" },
-    ],
-    buttonText: "Learn more",
-    buttonColor: "bg-accent-primary text-black",
-    gradientFrom: "from-yellow-900/20",
-    gradientTo: "to-green-900/20",
-  },
-  {
-    badge: "Service",
-    title: "Web Development",
-    description:
-      "Building responsive, fast, and scalable web applications using modern technologies and best practices.",
-    tags: ["Professional", "Fast Delivery"],
-    buttonText: "Get Started",
-    buttonColor: "bg-accent-primary text-black",
-    gradientFrom: "from-blue-900/20",
-    gradientTo: "to-teal-900/20",
-  },
-  {
-    badge: "Service",
-    title: "Seo",
-    description:
-      "Optimizing websites for search engines to improve visibility, drive traffic, and increase conversions.",
-    features: [
-      { text: "No upfront development charge" },
-      { text: "No-code build & launch" },
-      { text: "Ongoing updates and maintenance" },
-    ],
-    buttonText: "Contact us",
-    buttonColor: "border border-accent-primary text-accent-primary",
-    gradientFrom: "from-green-900/20",
-    gradientTo: "to-yellow-900/20",
-  },
-  {
-    badge: "Digital Marketing",
-    title: "Digital Marketing",
-    description:
-      "Crafting compelling visual content and campaigns that drive engagement and conversions.",
-    features: [
-      { text: "No upfront development charge" },
-      { text: "No-code build & launch" },
-      { text: "Ongoing updates and maintenance" },
-    ],
-    buttonText: "Get Started",
-    buttonColor: "bg-accent-primary text-black",
-    gradientFrom: "from-lime-900/20",
-    gradientTo: "to-green-900/20",
-  },
-];
 
 export default function WhatWeDo(): React.JSX.Element {
   return (
@@ -159,9 +89,7 @@ export default function WhatWeDo(): React.JSX.Element {
             </div>
 
             {/* Button */}
-            <button className="w-full md:w-auto px-6 md:px-8 py-2.5 md:py-3 rounded-full text-sm md:text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg bg-accent-primary text-black">
-              Learn more
-            </button>
+            <Button size="md">Learn more</Button>
           </div>
 
           {/* Web Development - Smaller Card */}
@@ -268,11 +196,8 @@ export default function WhatWeDo(): React.JSX.Element {
                 </div>
               </div>
             </div>
-
-            {/* Button */}
-            <button className="w-full md:w-auto px-6 md:px-8 py-2.5 md:py-3 rounded-full text-sm md:text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg border border-accent-primary text-accent-primary bg-transparent">
-              Contact us
-            </button>
+        
+            <Button size="md">Contact us</Button>
           </div>
 
           {/* Digital Marketing - Larger Card */}
