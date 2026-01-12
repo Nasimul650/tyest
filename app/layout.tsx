@@ -6,8 +6,6 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-
-
 export const metadata: Metadata = {
   metadataBase: new URL(`${process.env.DOMAIN_URL}`),
   title: {
@@ -67,7 +65,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-};;
+};
 
 export default function RootLayout({
   children,
@@ -76,9 +74,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} antialiased`}
-      >
+      <body className={`${inter.className} antialiased`}>
         <SeoSchema />
         <Header />
         {children}
