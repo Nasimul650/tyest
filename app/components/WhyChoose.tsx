@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import { 
   Zap, 
@@ -7,8 +6,8 @@ import {
   Award, 
   TrendingUp, 
   DollarSign,
-  Check,
-  X
+  X,
+  CircleCheckBig
 } from "lucide-react";
 
 interface ComparisonRow {
@@ -117,7 +116,7 @@ export default function WhyChoose(): React.JSX.Element {
                     <span className="text-xs font-semibold text-lime-400 uppercase tracking-wider">
                       Algorize
                     </span>
-                    <Check className="w-4 h-4 text-lime-400" />
+                    <CircleCheckBig color="#cf0" className="w-4 h-4" />
                   </div>
                   <p className="text-sm mt-1">{row.algorize.text}</p>
                 </div>
@@ -129,7 +128,7 @@ export default function WhyChoose(): React.JSX.Element {
                       Typical Agencies
                     </span>
                     {row.typicalAgencies.positive ? (
-                      <Check className="w-4 h-4 text-green-400" />
+                      <CircleCheckBig color="#cf0" className="w-4 h-4" />
                     ) : (
                       <X className="w-4 h-4 text-red-400" />
                     )}
@@ -144,7 +143,7 @@ export default function WhyChoose(): React.JSX.Element {
                       Full-time Designer
                     </span>
                     {row.fullTimeDesigner.positive ? (
-                      <Check className="w-4 h-4 text-green-400" />
+                      <CircleCheckBig color="#cf0" className="w-4 h-4" />
                     ) : (
                       <X className="w-4 h-4 text-red-400" />
                     )}
@@ -159,7 +158,7 @@ export default function WhyChoose(): React.JSX.Element {
                       Freelancers
                     </span>
                     {row.freelancers.positive ? (
-                      <Check className="w-4 h-4 text-green-400" />
+                      <CircleCheckBig color="#cf0"  className="w-4 h-4" />
                     ) : (
                       <X className="w-4 h-4 text-red-400" />
                     )}
@@ -214,7 +213,7 @@ export default function WhyChoose(): React.JSX.Element {
 
                   {/* Algorize Column */}
                   <div className="flex flex-col items-center justify-center py-4 px-4 bg-gradient-to-r from-lime-500/10 to-transparent border-l-2 border-lime-500/50">
-                    <Check className="w-5 h-5 text-lime-400 mb-2" />
+                    <CircleCheckBig color="#cf0" className="w-5 h-5 mb-2" />
                     <span className="text-sm text-center font-medium">
                       {row.algorize.text}
                     </span>
@@ -223,7 +222,7 @@ export default function WhyChoose(): React.JSX.Element {
                   {/* Typical Agencies Column */}
                   <div className="flex flex-col items-center justify-center py-4 px-4 bg-white/5">
                     {row.typicalAgencies.positive ? (
-                      <Check className="w-5 h-5 text-green-400 mb-2" />
+                      <CircleCheckBig color="#cf0" className="w-5 h-5 mb-2" />
                     ) : (
                       <X className="w-5 h-5 text-red-400 mb-2" />
                     )}
@@ -235,7 +234,7 @@ export default function WhyChoose(): React.JSX.Element {
                   {/* Full-time Designer Column */}
                   <div className="flex flex-col items-center justify-center py-4 px-4 bg-white/5">
                     {row.fullTimeDesigner.positive ? (
-                      <Check className="w-5 h-5 text-green-400 mb-2" />
+                      <CircleCheckBig color="#cf0" className="w-5 h-5 mb-2" />
                     ) : (
                       <X className="w-5 h-5 text-red-400 mb-2" />
                     )}
@@ -247,7 +246,7 @@ export default function WhyChoose(): React.JSX.Element {
                   {/* Freelancers Column */}
                   <div className="flex flex-col items-center justify-center py-4 px-4 bg-white/5">
                     {row.freelancers.positive ? (
-                      <Check className="w-5 h-5 text-green-400 mb-2" />
+                      <CircleCheckBig color="#cf0" className="w-5 h-5 mb-2" />
                     ) : (
                       <X className="w-5 h-5 text-red-400 mb-2" />
                     )}
