@@ -1,14 +1,14 @@
 "use client";
-import React from "react";
 import {
-  Zap,
-  Target,
   Award,
-  TrendingUp,
-  DollarSign,
+  CircleCheckBig,
   CircleX,
-  CircleCheckBig
+  DollarSign,
+  Target,
+  TrendingUp,
+  Zap,
 } from "lucide-react";
+import React from "react";
 import AnimatedMarquee from "./AnimatedMarquee";
 import Button from "./ui/Button";
 
@@ -109,7 +109,9 @@ export default function WhyChoose(): React.JSX.Element {
                   <div className="p-2 bg-[#e5e5e5] rounded-lg text-blue-400">
                     {row.icon}
                   </div>
-                  <h3 className="text-lg md:text-xl font-semibold">{row.feature}</h3>
+                  <h3 className="text-lg md:text-xl font-semibold">
+                    {row.feature}
+                  </h3>
                 </div>
 
                 <div className="space-y-3">
@@ -136,7 +138,9 @@ export default function WhyChoose(): React.JSX.Element {
                         <CircleX className="w-3 h-3 text-red-400" />
                       )}
                     </div>
-                    <p className="text-sm mt-1 text-gray-300">{row.typicalAgencies.text}</p>
+                    <p className="text-sm mt-1 text-gray-300">
+                      {row.typicalAgencies.text}
+                    </p>
                   </div>
 
                   {/* Full-time Designer */}
@@ -151,7 +155,9 @@ export default function WhyChoose(): React.JSX.Element {
                         <CircleX className="w-3 h-3 text-red-400" />
                       )}
                     </div>
-                    <p className="text-sm mt-1 text-gray-300">{row.fullTimeDesigner.text}</p>
+                    <p className="text-sm mt-1 text-gray-300">
+                      {row.fullTimeDesigner.text}
+                    </p>
                   </div>
 
                   {/* Freelancers */}
@@ -166,7 +172,9 @@ export default function WhyChoose(): React.JSX.Element {
                         <CircleX className="w-3 h-3 text-red-400" />
                       )}
                     </div>
-                    <p className="text-sm mt-1 text-gray-300">{row.freelancers.text}</p>
+                    <p className="text-sm mt-1 text-gray-300">
+                      {row.freelancers.text}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -202,15 +210,18 @@ export default function WhyChoose(): React.JSX.Element {
                 {comparisonData.map((row, index) => (
                   <div
                     key={index}
-                    className={`grid grid-cols-5 gap-4 border-b border-white/10 ${index === 0 ? 'border-t' : ''
-                      }`}
+                    className={`grid grid-cols-5 gap-4 border-b border-white/10 ${
+                      index === 0 ? "border-t" : ""
+                    }`}
                   >
                     {/* Feature Column */}
                     <div className="flex items-center gap-3 py-4 px-4 bg-gradient-to-r from-blue-900/20 to-transparent">
                       <div className="p-2.5 bg-blue-500/20 rounded-lg text-blue-400">
                         {row.icon}
                       </div>
-                      <span className="font-semibold text-base">{row.feature}</span>
+                      <span className="font-semibold text-base">
+                        {row.feature}
+                      </span>
                     </div>
 
                     {/* Algorize Column */}
@@ -262,14 +273,13 @@ export default function WhyChoose(): React.JSX.Element {
             </div>
           </div>
         </div>
+
+        <div className="w-full flex justify-center border-none bg-black mt-10">
+          <Button size="lg">Get Started</Button>
+        </div>
+
+        <AnimatedMarquee />
       </section>
-
-
-      <div className="w-full flex justify-center">
-        <Button size="lg">Get Started</Button>
-      </div>
-
-      <AnimatedMarquee />
     </>
   );
 }
