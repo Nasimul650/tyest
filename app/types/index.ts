@@ -22,6 +22,8 @@ export interface ProcessStep {
 export interface PricingPlan {
   id: string;
   name: string;
+  buttonText: string;
+  buttonVariant: "solid" | "outline" | "primary" | "secondary";
   price: number;
   period?: string;
   description?: string;
@@ -50,8 +52,11 @@ export interface Project {
   id: string;
   title: string;
   description: string;
+  subtitle?: string;
+  tags?: string[];
   image?: string;
   technologies?: string[];
   link?: string;
+  url?: string;
   category?: string;
 }
