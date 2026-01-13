@@ -2,7 +2,7 @@
 
 import React from "react";
 import { BadgeCheck, CircleCheck, CircleCheckBig, Sparkles, Users } from "lucide-react";
-import Button from "./Button";
+import Button from "./ui/Button";
 
 interface Feature {
   text: string;
