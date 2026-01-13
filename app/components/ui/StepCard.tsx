@@ -1,4 +1,11 @@
-export default function StepCard({ number, title, description, position }) {
+interface StepCardProps {
+  number: string;
+  title: string;
+  description: string;
+  position: "left" | "right";
+}
+
+export default function StepCard({ number, title, description, position }: StepCardProps) {
   return (
     <div
       className={`step-card flex ${

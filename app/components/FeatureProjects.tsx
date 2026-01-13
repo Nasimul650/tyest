@@ -5,6 +5,60 @@ import { homeData } from "../data/data";
 import ProjectCard from "./ui/ProjectCard";
 import ProjectModal from "./ui/ProjectModal";
 
+interface Technology {
+  id: number;
+  name: string;
+  category: string;
+  icon: string;
+  description: string;
+  type: string;
+  experience: string;
+  projects: number;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string | null;
+}
+
+interface Category {
+  id: number;
+  name: string;
+  slug: string;
+  description: string | null;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string | null;
+}
+
+interface ProjectData {
+  id: number;
+  title: string;
+  slug: string;
+  client: string;
+  images: string[];
+  description: string;
+  credentials: Array<{
+    type: string;
+    email: string;
+    password: string;
+  }>;
+  previewImage: string;
+  demoUrl: string;
+  link: string;
+  date: string;
+  features: Array<{
+    title: string;
+    description: string;
+  }>;
+  metaTitle: string;
+  metaDescription: string;
+  metaKeywords: string[];
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string | null;
+  technologies: Technology[];
+  categories: Category[];
+}
+
 const FeaturedProjects: React.FC = () => {
   const topRowRef = useRef<HTMLDivElement>(null);
   const bottomRowRef = useRef<HTMLDivElement>(null);
@@ -164,11 +218,13 @@ const FeaturedProjects: React.FC = () => {
         </div>
       </div>
       {/* Project Modal */}
-      <ProjectModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        project={selectedProject}
-      />
+      {selectedProject && (
+        <ProjectModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          project={selectedProject}
+        />
+      )}
     </div>
   );
 };
