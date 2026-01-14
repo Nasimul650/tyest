@@ -130,7 +130,7 @@ const FeatureProblemSection: React.FC = () => {
                 height={1500}
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
                 alt="Team collaboration"
-                className="w-full h-[500px] object-cover grayscale"
+                className="w-full h-90.75 object-cover grayscale"
               />
             </div>
 
@@ -211,7 +211,7 @@ const FeatureProblemSection: React.FC = () => {
                 height={1500}
                 src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80"
                 alt="Product review"
-                className="w-full h-[400px] object-cover grayscale"
+                className="w-[520px] h-[293px] object-cover grayscale"
               />
             </div>
           </div>
