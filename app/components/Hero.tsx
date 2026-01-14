@@ -141,13 +141,15 @@ const HeroSection: React.FC = () => {
           </div>
 
           {/* Trusted By */}
-          <div className="mt-10">
+          <div className="mt-10 flex flex-col justify-center items-center">
             <p ref={trustedRef} className="text-sm text-gray-500">
               Trusted by innovative companies worldwide
             </p>
 
             {/* Company Logos */}
-            <LogoMarquee />
+            <div className="w-3xl">
+              <LogoMarquee />
+            </div>
           </div>
         </div>
       </div>

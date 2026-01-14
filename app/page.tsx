@@ -5,6 +5,9 @@ import HeroSection from "./components/Hero";
 import ProcessSection from "./components/ProcessSection";
 import WhatWeDo from "./components/WhatWeDo";
 import WhyChoose from "./components/WhyChoose";
+import Technologies from "./components/TechnologySection";
+
+
 
 export const generateMetadata = (): Metadata => {
   return {
@@ -28,6 +31,7 @@ export default function Home() {
       <ProcessSection />
       <WhatWeDo />
       <WhyChoose />
+      <Technologies />
     </div>
   );
 }

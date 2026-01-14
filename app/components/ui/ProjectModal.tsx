@@ -1,8 +1,19 @@
 "use client";
 
 import { gsap } from "gsap";
+import { Calendar, ExternalLink, Share2, Tag, User } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import {
+  FacebookIcon,
+  FacebookShareButton,
+  LinkedinIcon,
+  LinkedinShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
+} from "react-share";
 import Button from "./Button";
 
 interface Technology {
@@ -41,6 +52,8 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
   const [active, setActive] = useState(0);
 
   const next = () => setActive((prev) => (prev + 1) % images.length);
+
+  const shareUrl = "/";
 
   const prev = () =>
     setActive((prev) => (prev - 1 + images.length) % images.length);
@@ -108,12 +121,16 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
             <h2 className="text-lg font-semibold text-white">
               {project.title}
             </h2>
-            <button
-              onClick={onClose}
-              className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 transition flex items-center justify-center text-white cursor-pointer"
-            >
-              ✕
-            </button>
+            <div className="relative">
+              <div className="md:absolute -right-80 -top-10 rounded-full bg-white/15 hover:bg-white/10 p-2">
+                <button
+                  onClick={onClose}
+                  className="w-9 h-9 transition flex items-center justify-center text-white cursor-pointer"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
           </div>
 
           {/* SCROLLABLE CONTENT */}
@@ -126,62 +143,107 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
                     Project Details
                   </div>
 
-                  <div className="p-5 space-y-4 text-sm text-white/80">
-                    <div>
-                      <p className="text-xs uppercase text-white/40">
-                        Project Name
-                      </p>
-                      <p>{project.title}</p>
-                    </div>
-
-                    <div>
-                      <p className="text-xs uppercase text-white/40">Client</p>
-                      <p>{project.client}</p>
-                    </div>
-
-                    <div>
-                      <p className="text-xs uppercase text-white/40">
-                        Categories
-                      </p>
-                      <div className="flex flex-wrap gap-2 mt-1">
-                        {categories.map((cat, i) => (
-                          <span
-                            key={i}
-                            className="inline-flex items-center rounded-full bg-[#2a2a2a] px-3 py-1 text-xs text-[#d4ff00]"
-                          >
-                            {cat}
-                          </span>
-                        ))}
+                  <div className="p-5 space-y-7 text-sm text-white/80">
+                    <div className="flex gap-3">
+                      <Tag className="w-5 h-5" />
+                      <div>
+                        <p className="text-sm uppercase text-white mb-2">
+                          Project Name
+                        </p>
+                        <p>{project.title}</p>
                       </div>
                     </div>
 
-                    <div>
-                      <p className="text-xs uppercase text-white/40">Date</p>
-                      <p>{formattedDate}</p>
+                    <div className="flex gap-3">
+                      <User className="w-5 h-5" />
+                      <div>
+                        <p className="text-sm uppercase text-white mb-2">
+                          Client
+                        </p>
+                        <p>{project.client}</p>
+                      </div>
                     </div>
 
-                    <div className="flex gap-3 pt-2">
-                      <Button href={project.demoUrl} className="flex-1 rounded-full bg-[#d4ff00] py-2 text-sm font-medium text-black hover:opacity-90 transition">
-                        View Live
+                    <div className="flex gap-3">
+                      <Tag className="w-5 h-5" />
+                      <div>
+                        <p className="text-xs uppercase text-white mb-3">
+                          Categories
+                        </p>
+                        <div className="flex flex-wrap gap-2 mt-1">
+                          {categories.map((cat, i) => (
+                            <span
+                              key={i}
+                              className="inline-flex items-center rounded-full bg-[#5a6b16] px-3 py-1 text-xs text-gray-200 border"
+                            >
+                              {cat}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-3">
+                      <Calendar className="w-5 h-5" />
+                      <div>
+                        <p className="text-xs uppercase text-white mb-2">
+                          Date
+                        </p>
+                        <p>{formattedDate}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex md:flex-row flex-col gap-3 pt-2">
+                      {/* Primary */}
+                      <Button
+                        href={project.demoUrl}
+                        className="bg-[#d4ff00] text-black hover:opacity-90"
+                      >
+                        <ExternalLink className="md:w-4 md:h-4 mr-1 w-4 h-3.5" />
+                        <span>View Live</span>
                       </Button>
-                      <Button className="bg-gray-950 border-gray-300 text-white">
-                        View Demo
+
+                      {/* Secondary */}
+                      <Button className="bg-gray-950 text-white border-gray-300 hover:bg-gray-900">
+                        <ExternalLink className="md:w-4 md:h-4 mr-1 w-4 h-3.5" />
+                        <span>View Demo</span>
                       </Button>
                     </div>
 
-                    <div className="pt-3">
-                      <p className="text-xs uppercase text-white/40 mb-2">
-                        Share
-                      </p>
+                    <div className="pt-4 border-t  border-neutral-700 flex justify-between flex-wrap items-center gap-3">
+                      <h3 className="text-light font-medium flex items-center">
+                        <Share2 className="w-4 h-4 mr-2" />
+                        Share:
+                      </h3>
                       <div className="flex gap-2">
-                        {["f", "t", "in", "w"].map((s, i) => (
-                          <div
-                            key={i}
-                            className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 transition flex items-center justify-center text-xs"
-                          >
-                            {s}
-                          </div>
-                        ))}
+                        <FacebookShareButton
+                          url={shareUrl}
+                          title={project.title}
+                          className="hover:opacity-80 transition-opacity duration-300"
+                        >
+                          <FacebookIcon size={32} round />
+                        </FacebookShareButton>
+                        <TwitterShareButton
+                          url={shareUrl}
+                          title={project.title}
+                          className="hover:opacity-80 transition-opacity duration-300"
+                        >
+                          <TwitterIcon size={32} round />
+                        </TwitterShareButton>
+                        <LinkedinShareButton
+                          url={shareUrl}
+                          className="hover:opacity-80 transition-opacity duration-300"
+                        >
+                          <LinkedinIcon size={32} round />
+                        </LinkedinShareButton>
+                        <WhatsappShareButton
+                          url={shareUrl}
+                          title={project.title}
+                          separator=" - "
+                          className="hover:opacity-80 transition-opacity duration-300"
+                        >
+                          <WhatsappIcon size={32} round />
+                        </WhatsappShareButton>
                       </div>
                     </div>
                   </div>
@@ -189,13 +251,13 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
 
                 {/* CTA */}
                 <div className="rounded-2xl bg-[#111] border border-white/10 p-6 text-center">
-                  <h3 className="text-white font-semibold mb-2">
+                  <h3 className="text-white font-semibold mb-2 text-2xl">
                     Ready to Get Started?
                   </h3>
-                  <p className="text-xs text-white/50 mb-4">
+                  <p className="text-sm text-white/80 mb-4">
                     Lets discuss how our service can help your business grow.
                   </p>
-                  <Button className="w-full rounded-full bg-[#d4ff00] py-2 text-sm font-medium text-black">
+                  <Button className="px-16 border rounded-full border-white bg-[#d4ff00] py-4 text-sm font-medium text-black">
                     Lets Talk
                   </Button>
                 </div>

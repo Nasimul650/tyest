@@ -46,7 +46,7 @@ export default function CurvedMarquee() {
   const content = Array(REPEAT_COUNT).fill(BASE_TEXT).join(" ");
 
   return (
-    <section className="w-full bg-black overflow-hidden py-10">
+    <section className="w-full overflow-hidden py-10">
       <svg
         viewBox="0 0 1600 300"
         width="100%"

@@ -2,6 +2,7 @@
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { Cross, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -185,10 +186,14 @@ const Header = () => {
           onClick={() => setMenuOpen((p) => !p)}
           aria-label="Toggle menu"
         >
-          <span className="block w-5 h-[2px] bg-white relative">
-            <span className="absolute left-0 top-[-6px] w-5 h-[2px] bg-white" />
-            <span className="absolute left-0 top-[6px] w-5 h-[2px] bg-white" />
-          </span>
+          {menuOpen ? (
+            <X />
+          ) : (
+            <span className="block w-5 h-[2px] bg-white relative">
+              <span className="absolute left-0 top-[-6px] w-5 h-[2px] bg-white" />
+              <span className="absolute left-0 top-[6px] w-5 h-[2px] bg-white" />
+            </span>
+          )}
         </button>
       </div>
 

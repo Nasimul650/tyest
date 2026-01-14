@@ -58,7 +58,7 @@ const Button: React.FC<ButtonProps> = ({
         {/* Default text */}
         <span
           className="
-            block
+            flex justify-center items-center
             transition-transform duration-300 ease-out
             group-hover:-translate-y-full leading-none
           "
