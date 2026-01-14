@@ -118,7 +118,7 @@ const HeroSection: React.FC = () => {
               <span className="block">Premium Websites for</span>
             </div>
             <div className="line overflow-hidden">
-              <span className="block bg-gradient-to-r from-[#d4ff00] via-[#b8e600] to-[#d4ff00] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-text-primary via-accent-primary/80 to-text-primary bg-clip-text text-transparent leading-tight block -mt-2">
                 SaaS & Startups
               </span>
             </div>

@@ -213,7 +213,7 @@ export default function ProcessSection() {
           </div>
           <h2 className="text-4xl md:text-7xl font-bold text-white leading-tight">
             Our Process <br />
-            <span className="text-[#C6F128]">Step by Step</span>
+            <span className="bg-linear-to-r from-text-primary via-accent-primary/80 to-text-primary bg-clip-text text-transparent">Step by Step</span>
           </h2>
           <p className="text-gray-400 mt-8 max-w-2xl mx-auto text-lg md:text-xl font-light">
             Get a premium website or custom business solution that meets your
