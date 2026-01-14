@@ -573,7 +573,7 @@ export const homeData = {
     ],
     processList: [
       {
-        id: 4,
+        id: 1,
         title: "Discover & Define",
         description:
           "We begin by understanding your brand, business goals, and target audience. This phase helps define the challenges and objectives for the project.",
@@ -582,7 +582,7 @@ export const homeData = {
           "https://res.cloudinary.com/dygyhxplr/image/upload/v1763199976/upload/discover.png",
       },
       {
-        id: 5,
+        id: 2,
         title: "Strategize & Plan",
         description:
           "We develop a strategic roadmap tailored to your goals, including content planning, SEO audit, design wireframes, and tech stack decisions for development.",
@@ -591,7 +591,7 @@ export const homeData = {
           "https://res.cloudinary.com/dygyhxplr/image/upload/v1763200059/upload/plan.png",
       },
       {
-        id: 6,
+        id: 3,
         title: "Design Experience",
         description:
           "Our UI/UX designers craft best intuitive and visually compelling interfaces that will resonate with users and align with your brand identity.",
@@ -600,7 +600,7 @@ export const homeData = {
           "https://res.cloudinary.com/dygyhxplr/image/upload/v1763200094/upload/design.png",
       },
       {
-        id: 7,
+        id: 4,
         title: "Develop Solutions",
         description:
           "We bring designs to life with scalable, secure, and high-performance web development using modern frameworks and clean code practices.",
@@ -609,7 +609,7 @@ export const homeData = {
           "https://res.cloudinary.com/dygyhxplr/image/upload/v1763205011/upload/develop.png",
       },
       {
-        id: 8,
+        id: 5,
         title: "Optimize & Launch",
         description:
           "We fine-tune for SEO, page speed, and responsiveness before launching. Every detail is checked to ensure a smooth and impactful release.",
@@ -618,7 +618,7 @@ export const homeData = {
           "https://res.cloudinary.com/dygyhxplr/image/upload/v1763205043/upload/project-complete.png",
       },
       {
-        id: 9,
+        id: 6,
         title: "Promote & Grow",
         description:
           "Post-launch, we support your digital growth through targeted marketing campaigns, analytics, and conversion optimization strategies.",
@@ -626,6 +626,15 @@ export const homeData = {
         image:
           "https://res.cloudinary.com/dygyhxplr/image/upload/v1763205069/upload/support.png",
       },
+      {
+        id: 7,
+        title: "Support & Evolve",
+        description:
+          "We provide ongoing support and maintenance to ensure your web app remains up-to-date, secure, and aligned with your evolving business needs.",
+        slug: "support-&-evolve",
+        image:
+          "https://res.cloudinary.com/dygyhxplr/image/upload/v1763205069/upload/support.png",
+      }
     ],
     blogs: [
       {

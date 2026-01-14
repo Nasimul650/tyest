@@ -11,7 +11,7 @@ interface Feature {
 export default function WhatWeDo(): React.JSX.Element {
   return (
     <section className="min-h-screen bg-black text-white py-12 md:py-20 px-4 md:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto text-left">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
           <div className="inline-block mb-4 md:mb-6">
@@ -30,7 +30,7 @@ export default function WhatWeDo(): React.JSX.Element {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 bg-[#0D1320]">
           {/* UI/UX Design - Larger Card */}
           <div
             className="lg:col-span-7 relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-yellow-900/20 to-green-900/20 p-6 md:p-8 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:shadow-xl hover:shadow-accent-primary/5"
@@ -40,7 +40,7 @@ export default function WhatWeDo(): React.JSX.Element {
               <span className="inline-flex items-center gap-2 px-3 py-2.5 text-xs font-medium border border-white/20 rounded-[12px]" style={{ backgroundColor: 'oklab(0.930706 -0.124749 0.191517 / 0.2)' }}>
                 <Users color="#cf0" />
               </span>
-              <div className="text-[#cf0]">Service</div>
+              <div className="text-[#cf0] text-[14px]">Service</div>
             </div>
 
             {/* Title */}
@@ -86,10 +86,7 @@ export default function WhatWeDo(): React.JSX.Element {
             className="lg:col-span-5 relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-blue-900/20 to-teal-900/20 p-6 md:p-8 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:shadow-xl hover:shadow-accent-primary/5"
           >
             {/* Badge */}
-            <div className="mb-4 gap-x-3 flex items-center  md:mb-6">
-              <span className="inline-flex items-center gap-2 px-3 py-2.5 text-xs font-medium border border-white/20 rounded-[12px]" style={{ backgroundColor: 'oklab(0.930706 -0.124749 0.191517 / 0.2)' }}>
-                <Users color="#cf0" />
-              </span>
+            <div className="mb-4 gap-x-3 flex items-center md:mb-6 text-[14px]">
               <div className="text-[#cf0]">Service</div>
             </div>
 
@@ -164,7 +161,7 @@ export default function WhatWeDo(): React.JSX.Element {
               </div>
             </div>
 
-            <Button size="md">Contact us</Button>
+            <Button className="bg-transparent border-white px-12 py-4" size="md"><span className="text-[#CCFF00]">Contact us</span></Button>
           </div>
 
           {/* Digital Marketing - Larger Card */}
@@ -227,9 +224,9 @@ export default function WhatWeDo(): React.JSX.Element {
             </div>
 
             {/* Button */}
-            <button className="w-full md:w-auto px-6 md:px-8 py-2.5 md:py-3 rounded-full text-sm md:text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg bg-accent-primary text-black">
+            <Button className="w-full md:w-auto px-6 md:px-8 py-2.5 md:py-3 rounded-full text-sm md:text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg bg-accent-primary text-black">
               Get Started
-            </button>
+            </Button>
           </div>
         </div>
       </div>

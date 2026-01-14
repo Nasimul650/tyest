@@ -135,28 +135,38 @@ const FeatureProblemSection: React.FC = () => {
             </div>
 
             {/* Circular Badge */}
-            <div
-              className="relative overflow-visible left-3/4 -translate-x-1/2 w-32 h-32 bg-zinc-800 rounded-full hidden md:flex items-center justify-center shadow-xl m-5"
-            >
-              <div className="relative w-full h-full flex items-center justify-center">
+            <div className="relative overflow-visible left-3/4 -translate-x-1/2 w-44 h-44 bg-[#999999] rounded-full hidden md:flex items-center justify-center shadow-xl m-5">
+              <div className="relative w-full h-full flex items-center justify-center ">
                 {/* Rotating text */}
                 <svg
-                  className="absolute inset-0 w-full h-full animate-spin-slow"
                   viewBox="0 0 100 100"
+                  className="absolute inset-0 w-full h-full animate-spin-slow"
                 >
-                  <path
-                    id="circlePath"
-                    d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
-                    fill="none"
-                  />
-                  <text fill="#888" fontSize="8" fontWeight="500">
-                    <textPath href="#circlePath">
+                  <defs>
+                    <path
+                      id="circlePath"
+                      d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
+                    />
+                  </defs>
+
+                  <text
+                    fill="#2a2a2a"
+                    fontSize="7"
+                    fontWeight="500"
+                    letterSpacing="1.5"
+                  >
+                    <textPath
+                      href="#circlePath"
+                      startOffset="0%"
+                      textLength="232"
+                      lengthAdjust="spacing"
+                    >
                       LEADING DIGITAL AGENCY • SINCE 2005 •
                     </textPath>
                   </text>
                 </svg>
                 {/* Center arrow */}
-                <div className="relative z-10 w-12 h-12 bg-[#d4ff00] rounded-full flex items-center justify-center">
+                <div className="relative z-10 w-16 h-16 bg-[#9AE600] rounded-full flex items-center justify-center border">
                   <svg
                     className="w-5 h-5 text-black"
                     fill="none"
