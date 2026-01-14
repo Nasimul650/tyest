@@ -10,12 +10,82 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+
+  /* Background Colors */
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+  --color-bg-input: var(--bg-input);
+  --color-bg-card: var(--bg-card);
+  --color-bg-modal: var(--bg-modal);
+
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Text Colors */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-disabled: var(--text-disabled);
+  --color-text-accent: var(--text-accent);
+
+  /* Accent Colors */
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-light: var(--accent-light);
+
+  /* Border Colors */
+  --color-border-primary: var(--border-primary);
+  --color-border-secondary: var(--border-secondary);
+  --color-border-accent: var(--border-accent);
+
+  /* Status Colors */
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+
+    /* Background Colors */
+  --bg-primary: #000000; /* Pure Black */
+  --bg-secondary: #1a1a1a; /* Dark Charcoal */
+  --bg-tertiary: #2a2a2a; /* Medium Charcoal */
+  --bg-input: #333333; /* Light Charcoal */
+  --bg-card: #1f1f1f; /* Card Background */
+  --bg-modal: #0f0f0f; /* Modal Background */
+  --card: #1c1c1c;
+  --card-foreground: oklch(0.985 0 0);
+
+  /* Text Colors */
+  --text-primary: #ffffff; /* Pure White */
+  --text-secondary: #e5e5e5; /* Light Gray */
+  --text-muted: #b8b8b8; /* Medium Gray */
+  --text-disabled: #888888; /* Darker Gray */
+  --text-accent: #000000; /* Black on accent backgrounds */
+
+  /* Accent Colors */
+  --accent-primary: #ccff00; /* Bright Yellow-Green */
+  --accent-hover: #b8e600; /* Darker Yellow-Green */
+  --accent-secondary: #a3d900; /* Even Darker Yellow-Green */
+  --accent-light: #e6ff80; /* Lighter Yellow-Green */
+
+  /* Border & Divider Colors */
+  --border-primary: #444444; /* Dark Gray */
+  --border-secondary: #333333; /* Darker Gray */
+  --border-accent: #ccff00; /* Accent Border */
+
+  /* Status Colors */
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
   }
 }
 

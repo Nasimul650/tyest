@@ -47,7 +47,7 @@ export default function LogoMarquee() {
     <section className="overflow-hidden bg-black py-8">
       <div className="relative w-full select-none">
         {/* The Track */}
-        <div ref={containerRef} className="flex w-fit will-change-transform">
+        <div ref={containerRef} className="flex w-fit     will-change-transform">
           {/* Render Set 1 */}
           <LogoList logos={logoSet} />
           {/* Render Set 2 (The seamless clone) */}
@@ -65,13 +65,13 @@ function LogoList({ logos }: { logos: string[] }) {
       {logos.map((src, i) => (
         <div
           key={i} // In a real app, use a unique ID if possible, but index is okay here
-          className="relative flex h-[80px] w-[180px] shrink-0 items-center justify-center opacity-80 transition-opacity hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300"
+          className="relative flex h-[70px] w-[135px] shrink-0 items-center justify-center opacity-80 transition-opacity hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300"
         >
           <Image
             src={src}
             alt="company logo"
             fill
-            sizes="180px"
+            sizes="100px"
             className="object-contain"
           />
         </div>
