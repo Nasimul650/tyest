@@ -34,8 +34,8 @@ const ConnectorLine = ({
                 ? "M2500,0 C900,98 380,40 300,180"
                 : "M190,55 C350,100 980,90 950,260"
             }
-            stroke="white"
-            strokeOpacity="0.3"
+            stroke="#ffffff"
+            strokeOpacity="0.6"
             strokeWidth="2"
             strokeDasharray="10 10"
             strokeLinecap="round"

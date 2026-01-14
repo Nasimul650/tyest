@@ -104,8 +104,8 @@ const HeroSection: React.FC = () => {
       className="min-h-screen bg-black text-white relative overflow-hidden"
     >
       {/* Hero Content */}
-      <div className="relative pt-32 pb-20 px-6 mt-20">
-        <div className="max-w-6xl mx-auto text-center">
+      <div className="relative pt-32 pb-20 sm:px-6 px-2 mt-20">
+        <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
           <AvatarBadge />
 

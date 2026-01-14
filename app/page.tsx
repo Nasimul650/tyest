@@ -6,6 +6,7 @@ import ProcessSection from "./components/ProcessSection";
 import WhatWeDo from "./components/WhatWeDo";
 import WhyChoose from "./components/WhyChoose";
 import Technologies from "./components/TechnologySection";
+import StackSection from "./components/StackSection";
 
 
 
@@ -31,7 +32,7 @@ export default function Home() {
       <ProcessSection />
       <WhatWeDo />
       <WhyChoose />
-      <Technologies />
+      <StackSection />
     </div>
   );
 }
