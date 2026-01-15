@@ -67,9 +67,11 @@ const Earth: React.FC<EarthProps> = ({
 
     /* ---------- Resize handling ---------- */
     const resizeObserver = new ResizeObserver(([entry]) => {
-      if (!entry || !globeRef.current) return;
+      if (!entry || !globeRef.current || !canvasRef.current) return;
       const newWidth = entry.contentRect.width;
-      globeRef.current.resize();
+      const canvas = canvasRef.current;
+      canvas.width = newWidth * dpr;
+      canvas.height = newWidth * dpr;
     });
 
     resizeObserver.observe(canvas);
