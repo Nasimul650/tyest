@@ -17,6 +17,7 @@ export const TimelineContent = <T extends keyof HTMLElementTagNameMap = "div">({
   animationNum,
   className,
   as,
+  timelineRef,
   once = false,
   ...props
 }: TimelineContentProps<T>) => {
