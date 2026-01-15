@@ -75,7 +75,7 @@ function Testimonials() {
           </p>
         </div>
 
-        <div className="absolute top-72 flex justify-center w-full hidden md:block">
+        <div className="absolute top-72  justify-center w-full hidden md:flex">
           <div className="absolute h-fit w-fit left-160">
             <AnimatedDots />
           </div>
