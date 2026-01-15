@@ -15,64 +15,70 @@ type TimelineContentProps<T extends keyof HTMLElementTagNameMap> = {
 export const TimelineContent = <T extends keyof HTMLElementTagNameMap = "div">({
   children,
   animationNum,
-  timelineRef,
   className,
   as,
+  timelineRef,
   once = false,
   ...props
 }: TimelineContentProps<T>) => {
   const elRef = useRef<HTMLElement | null>(null);
-  const hasAnimated = useRef(false);
+  const hasAnimatedRef = useRef(false);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    if (!elRef.current || !timelineRef.current) return;
-
     const el = elRef.current;
+    if (!el) return;
 
-    // Initial hidden state (matches Framer "hidden")
+    // ⚠️ Avoid filter animations (very expensive)
     gsap.set(el, {
       opacity: 0,
-      filter: "blur(20px)",
-      y: 0,
+      y: 24,
+      willChange: "transform, opacity",
     });
 
     const animateIn = () => {
-      if (once && hasAnimated.current) return;
-      hasAnimated.current = true;
+      if (once && hasAnimatedRef.current) return;
+      hasAnimatedRef.current = true;
 
       gsap.to(el, {
         opacity: 1,
-        filter: "blur(0px)",
         y: 0,
-        delay: animationNum * 0.2,
-        duration: 0.3,
-        ease: "power2.out",
+        duration: 0.45,
+        delay: animationNum * 0.12,
+        ease: "power3.out",
+        clearProps: "willChange",
       });
     };
 
-    const observer = new IntersectionObserver(
+    const reset = () => {
+      if (once) return;
+      gsap.set(el, {
+        opacity: 0,
+        y: 24,
+      });
+    };
+
+    observerRef.current = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           animateIn();
-          if (once) observer.disconnect();
-        } else if (!once) {
-          // Reset when leaving viewport (Framer behavior)
-          gsap.set(el, {
-            opacity: 0,
-            filter: "blur(0px)",
-          });
+          if (once) observerRef.current?.disconnect();
+        } else {
+          reset();
         }
       },
       {
-        root: null,
-        threshold: 0.2,
+        threshold: 0.25,
+        rootMargin: "0px 0px -10% 0px",
       }
     );
 
-    observer.observe(timelineRef.current);
+    observerRef.current.observe(el);
 
-    return () => observer.disconnect();
-  }, [animationNum, once, timelineRef]);
+    return () => {
+      observerRef.current?.disconnect();
+    };
+  }, [animationNum, once]);
 
   const Component = (as || "div") as React.ElementType;
 

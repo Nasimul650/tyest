@@ -1,8 +1,7 @@
 "use client";
 
 import { cn } from "@/libs/utils";
-import gsap from "gsap";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const GRADIENT_ANGLES = {
   top: 0,
@@ -22,67 +21,65 @@ export function ProgressiveBlur({
   direction = "bottom",
   blurLayers = 8,
   className,
-  blurIntensity = 0.05,
+  blurIntensity = 0.6,
 }: ProgressiveBlurProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
   const layers = Math.max(blurLayers, 2);
-  const segmentSize = 1 / (blurLayers + 1);
+  const segmentSize = 1 / (layers + 1);
+  const angle = GRADIENT_ANGLES[direction];
 
-  const layerRefs = useRef<HTMLDivElement[]>([]);
-
-  /* ---------------- GSAP ANIMATION ---------------- */
+  /* ---------------- Pause when offscreen ---------------- */
   useEffect(() => {
-    if (!layerRefs.current.length) return;
+    if (!containerRef.current) return;
 
-    gsap.fromTo(
-      layerRefs.current,
-      {
-        opacity: 0,
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setVisible(entry.isIntersecting);
       },
-      {
-        opacity: 1,
-        duration: 0.6,
-        ease: "power2.out",
-        stagger: 0.05,
-      }
+      { threshold: 0.1 }
     );
+
+    observer.observe(containerRef.current);
+
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <div className={cn("relative", className)}>
-      {Array.from({ length: layers }).map((_, index) => {
-        const angle = GRADIENT_ANGLES[direction];
+    <div
+      ref={containerRef}
+      className={cn("relative overflow-hidden", className)}
+    >
+      {visible &&
+        Array.from({ length: layers }).map((_, index) => {
+          const gradientStops = [
+            index * segmentSize,
+            (index + 1) * segmentSize,
+            (index + 2) * segmentSize,
+            (index + 3) * segmentSize,
+          ].map(
+            (pos, i) =>
+              `rgba(31,31,31,${i === 1 || i === 2 ? 1 : 0}) ${pos * 100}%`
+          );
 
-        const gradientStops = [
-          index * segmentSize,
-          (index + 1) * segmentSize,
-          (index + 2) * segmentSize,
-          (index + 3) * segmentSize,
-        ].map(
-          (pos, posIndex) =>
-            `rgba(31, 31, 31, ${posIndex === 1 || posIndex === 2 ? 1 : 0}) ${
-              pos * 100
-            }%`
-        );
-
-        const gradient = `linear-gradient(${angle}deg, ${gradientStops.join(
-          ", "
-        )})`;
-
-        return (
-          <div
-            key={index}
-            ref={(el) => {
-              if (el) layerRefs.current[index] = el;
-            }}
-            className="pointer-events-none absolute inset-0 rounded-[inherit]"
-            style={{
-              maskImage: gradient,
-              WebkitMaskImage: gradient,
-              backdropFilter: `blur(${index * blurIntensity}px)`,
-            }}
-          />
-        );
-      })}
+          return (
+            <div
+              key={index}
+              className="pointer-events-none absolute inset-0 rounded-[inherit]"
+              style={{
+                maskImage: `linear-gradient(${angle}deg, ${gradientStops.join(
+                  ","
+                )})`,
+                WebkitMaskImage: `linear-gradient(${angle}deg, ${gradientStops.join(
+                  ","
+                )})`,
+                backdropFilter: `blur(${index * blurIntensity}px)`,
+                willChange: "backdrop-filter",
+              }}
+            />
+          );
+        })}
     </div>
   );
 }
