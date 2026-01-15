@@ -4,6 +4,7 @@ import FeaturedProjects from "./components/FeatureProjects";
 import HeroSection from "./components/Hero";
 import ProcessSection from "./components/ProcessSection";
 import StackSection from "./components/StackSection";
+// import TechnologySection from "./components/TechnologySection";
 import Testimonials from "./components/Testimonials";
 import WhatWeDo from "./components/WhatWeDo";
 import WhyChoose from "./components/WhyChoose";
@@ -31,7 +32,7 @@ export default function Home() {
       <WhatWeDo />
       <WhyChoose />
       {/* <StackSection /> */}
-      {/* <Testimonials /> */}
+      <Testimonials />
     </div>
   );
 }
