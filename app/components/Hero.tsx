@@ -127,7 +127,7 @@ const HeroSection: React.FC = () => {
           {/* Subheading */}
           <p
             ref={subheadingRef}
-            className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
           >
             Every business needs a website, and its never been easier to get
             one.
@@ -142,7 +142,7 @@ const HeroSection: React.FC = () => {
 
           {/* Trusted By */}
           <div className="mt-10 flex flex-col justify-center items-center">
-            <p ref={trustedRef} className="text-sm text-gray-500">
+            <p ref={trustedRef} className="text-sm text-gray-400">
               Trusted by innovative companies worldwide
             </p>
 

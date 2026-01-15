@@ -182,9 +182,9 @@ const Feature3 = () => {
             </div>
 
             <article className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-bg-card via-bg-card to-transparent text-left">
-              <h3 className="text-lg md:text-xl font-medium text-text-primary">
+              <h1 className="text-lg md:text-xl font-medium text-text-primary">
                 Client Satisfaction
-              </h3>
+              </h1>
               <p className="text-xs md:text-sm text-text-muted">
                 Trusted by leading businesses who love working with us and
                 achieving exceptional results
@@ -219,9 +219,9 @@ const Feature3 = () => {
             </div>
 
             <article className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-bg-card via-bg-card to-transparent text-left">
-              <h3 className="text-lg md:text-xl font-medium text-text-primary mb-1">
+              <h1 className="text-lg md:text-xl font-medium text-text-primary mb-1">
                 Recent Projects
-              </h3>
+              </h1>
               <p className="text-xs md:text-sm text-text-muted">
                 Showcasing our latest work and successful client partnerships
               </p>
@@ -274,9 +274,9 @@ const Feature3 = () => {
             </div>
 
             <article className="relative z-10 text-left">
-              <h3 className="px-1 pt-1 text-text-primary xl:text-xl text-lg font-medium">
+              <h1 className="px-1 pt-1 text-text-primary xl:text-xl text-lg font-medium">
                 Free Consultation & Strategy Session
-              </h3>
+              </h1>
               <p className="mt-1 px-1 pb-1 font-normal text-text-muted md:text-sm text-xs w-full">
                 Book a complimentary 30-minute consultation to discuss your
                 project needs and get expert recommendations
@@ -290,11 +290,6 @@ const Feature3 = () => {
               opacitySpeed={2}
               color="#0f0f0f"
               className="absolute z-10 bottom-0 h-full w-full "
-            />
-
-            <ProgressiveBlur
-              className="pointer-events-none absolute bottom-0 left-0 h-[35%] w-full"
-              blurIntensity={3}
             />
             <ProgressiveBlur
               className="pointer-events-none absolute -top-20 left-0 h-[40%] w-full"
@@ -349,9 +344,9 @@ const Feature3 = () => {
             </div>
 
             <article className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-bg-card via-bg-card to-transparent text-left">
-              <h3 className="text-3xl md:text-2xl font-medium text-text-primary mb-2">
+              <h1 className="text-3xl md:text-2xl font-medium text-text-primary mb-2">
                 Cutting-Edge Technologies
-              </h3>
+              </h1>
               <p className="text-xs md:text-sm text-text-muted">
                 We leverage the latest frameworks, libraries, and tools to
                 deliver high-performance, scalable solutions for your business.
@@ -370,7 +365,7 @@ const Feature3 = () => {
           >
             <div className="relative h-full w-full overflow-hidden">
               <SparklesComp
-                density={800}
+                density={120}
                 speed={1.2}
                 size={1.2}
                 direction="top"
@@ -423,9 +418,9 @@ const Feature3 = () => {
               blurIntensity={0.5}
             />
             <article className="absolute z-10 right-0 bottom-0 left-0 w-full bg-gradient-to-t from-bg-card via-bg-card to-transparent p-3 pt-[100px] text-left">
-              <h3 className="px-1 pt-1 text-text-primary text-xl font-medium">
+              <h1 className="px-1 pt-1 text-text-primary text-xl font-medium">
                 Full-Service Digital Agency
-              </h3>
+              </h1>
               <p className="mt-1 px-1 pb-1 font-normal text-text-muted text-sm w-full">
                 From design to development, we provide end-to-end solutions for
                 your digital needs

@@ -2,14 +2,7 @@
 
 import { cn } from "@/libs/utils";
 import gsap from "gsap";
-import {
-  forwardRef,
-  RefObject,
-  useEffect,
-  useId,
-  useRef,
-  useState,
-} from "react";
+import { forwardRef, RefObject, useEffect, useId, useRef } from "react";
 
 export interface AnimatedBeamProps {
   className?: string;
@@ -55,112 +48,125 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
   dotSpacing = 6,
 }) => {
   const id = useId();
-  const [pathD, setPathD] = useState("");
-  const [svgDimensions, setSvgDimensions] = useState({ width: 0, height: 0 });
 
-  const animatedPathRef = useRef<SVGPathElement | null>(null);
-  const gradientRef = useRef<SVGLinearGradientElement | null>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
+  const pathRef = useRef<SVGPathElement>(null);
+  const animatedPathRef = useRef<SVGPathElement>(null);
+  const gradientRef = useRef<SVGLinearGradientElement>(null);
+
+  const timelineRef = useRef<gsap.core.Timeline | null>(null);
+  const visibleRef = useRef(true);
 
   const strokeDasharray = dotted ? `${dotSpacing} ${dotSpacing}` : undefined;
 
-  /* ---------------- PATH CALCULATION ---------------- */
+  /* ---------------- PATH CALCULATION (NO STATE) ---------------- */
+  const updatePath = () => {
+    if (
+      !containerRef.current ||
+      !fromRef.current ||
+      !toRef.current ||
+      !svgRef.current ||
+      !pathRef.current ||
+      !animatedPathRef.current
+    )
+      return;
+
+    const containerRect = containerRef.current.getBoundingClientRect();
+    const rectA = fromRef.current.getBoundingClientRect();
+    const rectB = toRef.current.getBoundingClientRect();
+
+    svgRef.current.setAttribute("width", `${containerRect.width}`);
+    svgRef.current.setAttribute("height", `${containerRect.height}`);
+    svgRef.current.setAttribute(
+      "viewBox",
+      `0 0 ${containerRect.width} ${containerRect.height}`
+    );
+
+    const startX =
+      rectA.left - containerRect.left + rectA.width / 2 + startXOffset;
+    const startY =
+      rectA.top - containerRect.top + rectA.height / 2 + startYOffset;
+    const endX = rectB.left - containerRect.left + rectB.width / 2 + endXOffset;
+    const endY = rectB.top - containerRect.top + rectB.height / 2 + endYOffset;
+
+    const controlY = startY - curvature;
+
+    const d = `M ${startX},${startY} Q ${
+      (startX + endX) / 2
+    },${controlY} ${endX},${endY}`;
+
+    pathRef.current.setAttribute("d", d);
+    animatedPathRef.current.setAttribute("d", d);
+  };
+
+  /* ---------------- SETUP ---------------- */
   useEffect(() => {
-    const updatePath = () => {
-      if (!containerRef.current || !fromRef.current || !toRef.current) return;
-
-      const containerRect = containerRef.current.getBoundingClientRect();
-      const rectA = fromRef.current.getBoundingClientRect();
-      const rectB = toRef.current.getBoundingClientRect();
-
-      setSvgDimensions({
-        width: containerRect.width,
-        height: containerRect.height,
-      });
-
-      const startX =
-        rectA.left - containerRect.left + rectA.width / 2 + startXOffset;
-      const startY =
-        rectA.top - containerRect.top + rectA.height / 2 + startYOffset;
-      const endX =
-        rectB.left - containerRect.left + rectB.width / 2 + endXOffset;
-      const endY =
-        rectB.top - containerRect.top + rectB.height / 2 + endYOffset;
-
-      const controlY = startY - curvature;
-
-      setPathD(
-        `M ${startX},${startY} Q ${
-          (startX + endX) / 2
-        },${controlY} ${endX},${endY}`
-      );
-    };
-
-    const observer = new ResizeObserver(updatePath);
-    containerRef.current && observer.observe(containerRef.current);
-
     updatePath();
-    return () => observer.disconnect();
-  }, [
-    containerRef,
-    fromRef,
-    toRef,
-    curvature,
-    startXOffset,
-    startYOffset,
-    endXOffset,
-    endYOffset,
-  ]);
 
-  /* ---------------- GSAP ANIMATION (FIXED) ---------------- */
+    const resizeObserver = new ResizeObserver(updatePath);
+    containerRef.current && resizeObserver.observe(containerRef.current);
+
+    return () => resizeObserver.disconnect();
+  }, [curvature, startXOffset, startYOffset, endXOffset, endYOffset]);
+
+  /* ---------------- VISIBILITY CONTROL ---------------- */
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        visibleRef.current = entry.isIntersecting;
+        timelineRef.current?.paused(!entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  /* ---------------- GSAP ANIMATION ---------------- */
   useEffect(() => {
     if (!animatedPathRef.current || !gradientRef.current) return;
 
+    const gradientState = reverse ? { x: 100 } : { x: 0 };
+
+    timelineRef.current = gsap.timeline({
+      delay,
+      repeat: -1,
+      paused: false,
+    });
+
     gsap.set(animatedPathRef.current, {
-      strokeOpacity: 0,
+      strokeOpacity: 1,
       strokeWidth: pathWidth,
     });
 
-    gsap.to(animatedPathRef.current, {
-      strokeOpacity: 1,
-      strokeWidth: pathWidth * 1.5,
-      duration: 1.2,
-      delay,
-      ease: "power2.out",
-    });
-
-    // Animate a plain object, NOT the gradient element
-    const gradientState = reverse ? { x1: 90, x2: 100 } : { x1: 10, x2: 0 };
-
-    const gradientTarget = reverse ? { x1: -10, x2: 0 } : { x1: 110, x2: 100 };
-
-    gsap.to(gradientState, {
-      ...gradientTarget,
+    timelineRef.current.to(gradientState, {
+      x: reverse ? 0 : 100,
       duration,
-      delay,
-      repeat: -1,
-      ease: "expo.out",
+      ease: "none",
       onUpdate: () => {
-        if (!gradientRef.current) return;
-        gradientRef.current.setAttribute("x1", `${gradientState.x1}%`);
-        gradientRef.current.setAttribute("x2", `${gradientState.x2}%`);
+        gradientRef.current?.setAttribute("x1", `${gradientState.x - 20}%`);
+        gradientRef.current?.setAttribute("x2", `${gradientState.x}%`);
       },
     });
+
+    return () => {
+      timelineRef.current?.kill();
+      timelineRef.current = null;
+    };
   }, [delay, duration, pathWidth, reverse]);
 
   return (
     <svg
+      ref={svgRef}
       fill="none"
-      width={svgDimensions.width}
-      height={svgDimensions.height}
-      viewBox={`0 0 ${svgDimensions.width} ${svgDimensions.height}`}
-      className={cn(
-        "pointer-events-none absolute left-0 top-0 transform-gpu",
-        className
-      )}
+      className={cn("pointer-events-none absolute left-0 top-0", className)}
     >
       {/* Static path */}
       <path
-        d={pathD}
+        ref={pathRef}
         stroke={pathColor}
         strokeWidth={pathWidth}
         strokeOpacity={pathOpacity}
@@ -168,10 +174,9 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
         strokeDasharray={strokeDasharray}
       />
 
-      {/* Animated gradient path */}
+      {/* Animated path */}
       <path
         ref={animatedPathRef}
-        d={pathD}
         stroke={`url(#${id})`}
         strokeLinecap="round"
         strokeDasharray={strokeDasharray}
@@ -182,14 +187,9 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
           ref={gradientRef}
           id={id}
           gradientUnits="userSpaceOnUse"
-          x1="0%"
-          x2="0%"
-          y1="0%"
-          y2="0%"
         >
           <stop stopColor={gradientStartColor} stopOpacity="0" />
-          <stop stopColor={gradientStartColor} />
-          <stop offset="32.5%" stopColor={gradientStopColor} />
+          <stop offset="50%" stopColor={gradientStartColor} />
           <stop offset="100%" stopColor={gradientStopColor} stopOpacity="0" />
         </linearGradient>
       </defs>
@@ -199,7 +199,7 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
 
 AnimatedBeam.displayName = "AnimatedBeam";
 
-/* ---------------- CIRCLE ---------------- */
+/* ---------------- CIRCLE (UNCHANGED) ---------------- */
 
 export const Circle = forwardRef<
   HTMLDivElement,

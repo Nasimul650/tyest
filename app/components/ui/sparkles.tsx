@@ -2,153 +2,122 @@
 
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
+
+let engineInitialized = false;
 
 interface SparklesProps {
   className?: string;
   size?: number;
-  minSize?: number | null;
   density?: number;
   speed?: number;
-  minSpeed?: number | null;
   opacity?: number;
-  direction?: string;
-  opacitySpeed?: number;
-  minOpacity?: number | null;
   color?: string;
-  mousemove?: boolean;
   hover?: boolean;
   background?: string;
-  options?: Record<string, unknown>; // Changed from 'any' to 'unknown'
+  direction?: string;
+  opacitySpeed?: number;
 }
 
 export function Sparkles({
   className,
   size = 1.2,
-  minSize = null,
-  density = 800,
-  speed = 1.5,
-  minSpeed = null,
-  opacity = 1,
-  direction = "",
-  opacitySpeed = 3,
-  minOpacity = null,
+  density = 400,
+  speed = 1,
+  opacity = 0.8,
   color = "#ffffff",
-  mousemove = false,
   hover = false,
   background = "transparent",
-  options = {},
 }: SparklesProps) {
-  const [isReady, setIsReady] = useState(false);
+  const id = useId();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [ready, setReady] = useState(false);
+  const [visible, setVisible] = useState(false);
 
+  /* ---------- Init engine ONCE ---------- */
   useEffect(() => {
+    if (engineInitialized) {
+      setReady(true);
+      return;
+    }
+
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
     }).then(() => {
-      setIsReady(true);
+      engineInitialized = true;
+      setReady(true);
     });
   }, []);
 
-  const id = useId();
-  const defaultOptions = {
-    background: {
-      color: {
-        value: background,
-      },
-    },
-    fullScreen: {
-      enable: false,
-      zIndex: 1,
-    },
-    fpsLimit: 300,
+  /* ---------- Pause when offscreen ---------- */
+  useEffect(() => {
+    if (!containerRef.current) return;
 
-    interactivity: {
-      events: {
-        onClick: {
-          enable: true,
-          mode: "push",
+    const observer = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  /* ---------- Memoized options ---------- */
+  const options = useMemo(
+    () => ({
+      background: { color: { value: background } },
+      fullScreen: { enable: false },
+      fpsLimit: 60,
+      detectRetina: true,
+
+      interactivity: {
+        events: {
+          onHover: hover
+            ? {
+                enable: true,
+                mode: "repulse",
+              }
+            : undefined,
+          resize: true,
         },
-        onHover: {
-          enable: hover,
-          mode: "grab",
-          parallax: {
-            enable: mousemove,
-            force: 60,
-            smooth: 10,
+      },
+
+      particles: {
+        number: {
+          value:
+            typeof window !== "undefined" && window.innerWidth < 768
+              ? density * 0.5
+              : density,
+        },
+        color: { value: color },
+        opacity: {
+          value: opacity,
+          animation: {
+            enable: true,
+            speed: 1,
+            minimumValue: 0.3,
           },
         },
-        resize: true as boolean, // Changed from 'any' to 'boolean'
-      },
-      modes: {
-        push: {
-          quantity: 4,
+        size: {
+          value: size,
         },
-        repulse: {
-          distance: 200,
-          duration: 0.4,
-        },
-      },
-    },
-    particles: {
-      color: {
-        value: color,
-      },
-      move: {
-        enable: true,
-        direction,
-        speed: {
-          min: minSpeed || speed / 130,
-          max: speed,
-        },
-        straight: true,
-      },
-      collisions: {
-        absorb: {
-          speed: 2,
-        },
-        bounce: {
-          horizontal: {
-            value: 1,
-          },
-          vertical: {
-            value: 1,
-          },
-        },
-        enable: false,
-        maxSpeed: 50,
-        mode: "bounce",
-        overlap: {
+        move: {
           enable: true,
-          retries: 0,
+          speed,
+          direction: "none",
+          outModes: "out",
         },
       },
-      number: {
-        value: density,
-      },
-      opacity: {
-        value: {
-          min: minOpacity || opacity / 10,
-          max: opacity,
-        },
-        animation: {
-          enable: true,
-          sync: false,
-          speed: opacitySpeed,
-        },
-      },
-      size: {
-        value: {
-          min: minSize || size / 1.5,
-          max: size,
-        },
-      },
-    },
-    detectRetina: true,
-  };
+    }),
+    [background, color, density, hover, opacity, size, speed]
+  );
+
   return (
-    isReady && (
-      // @ts-expect-error - Particles component has incorrect types
-      <Particles id={id} options={defaultOptions} className={className} />
-    )
+    <div ref={containerRef} className={className}>
+      {ready && visible && (
+        // @ts-expect-error tsParticles typing issue
+        <Particles id={id} options={options} />
+      )}
+    </div>
   );
 }
