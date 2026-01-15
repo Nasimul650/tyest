@@ -272,7 +272,7 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
                     <div className="relative h-full w-full rounded-2xl overflow-hidden">
                       <Image
                         fill
-                        src={images[active]}
+                        src={images[active] || '/logo.jpeg'}
                         alt={project.title}
                         className="object-cover"
                       />
@@ -311,7 +311,7 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
                           }`}
                         >
                           <Image
-                            src={img}
+                            src={img  || '/logo.jpeg'}
                             alt={`thumb-${i}`}
                             fill
                             className="object-cover"
