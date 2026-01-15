@@ -95,15 +95,12 @@ const Feature3 = () => {
     <section ref={timelineRef} className="p-4 bg-black">
       <div className="max-w-7xl mx-auto">
         <article className="max-w-5xl mx-auto pb-10 text-center px-8 ">
-          <TimelineContent
-            as="h1"
-            animationNum={1}
-            timelineRef={timelineRef}
+          <h2
             className="text-3xl sm:text-4xl md:text-5xl font-medium text-text-primary"
           >
             Built with Modern <br />
             Technology & Expertise
-          </TimelineContent>
+          </h2>
         </article>
 
         <div className="sm:grid sm:grid-cols-12 gap-4 space-y-4 sm:space-y-0">
