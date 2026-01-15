@@ -23,7 +23,7 @@ const Earth: React.FC<EarthProps> = ({
   dark = 1,
   scale = 1.1,
   diffuse = 1.2,
-  mapSamples = 25000,
+  mapSamples = 25000, // reduced for performance
   mapBrightness = 6,
   baseColor = [0.08, 0.08, 0.08],
   markerColor = [0.8, 1, 0],
@@ -38,13 +38,17 @@ const Earth: React.FC<EarthProps> = ({
     if (!canvasRef.current) return;
 
     const canvas = canvasRef.current;
-    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-    const width = canvas.offsetWidth;
 
+    /* ---------- Performance guards ---------- */
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    const parent = canvas.parentElement!;
+    const size = parent.offsetWidth;
+
+    /* ---------- Create globe ---------- */
     globeRef.current = createGlobe(canvas, {
       devicePixelRatio: dpr,
-      width: width * dpr,
-      height: width * dpr,
+      width: size * dpr,
+      height: size * dpr,
       phi: 0,
       theta,
       dark,
@@ -61,33 +65,35 @@ const Earth: React.FC<EarthProps> = ({
       onRender: (state) => {
         if (!isVisibleRef.current) return;
         state.phi = phiRef.current;
-        phiRef.current += 0.003;
+        phiRef.current += 0.002; // mobile-safe rotation speed
       },
     });
 
     /* ---------- Resize handling ---------- */
     const resizeObserver = new ResizeObserver(([entry]) => {
-      if (!entry || !globeRef.current || !canvasRef.current) return;
-      const newWidth = entry.contentRect.width;
-      const canvas = canvasRef.current;
-      canvas.width = newWidth * dpr;
-      canvas.height = newWidth * dpr;
+      if (!entry || !canvasRef.current || !globeRef.current) return;
+
+      const newSize = entry.contentRect.width;
+
+      canvas.width = newSize * dpr;
+      canvas.height = newSize * dpr;
+
+      globeRef.current.resize();
     });
 
-    resizeObserver.observe(canvas);
+    resizeObserver.observe(parent);
 
     /* ---------- Pause when offscreen ---------- */
     const intersectionObserver = new IntersectionObserver(
       ([entry]) => {
         isVisibleRef.current = entry.isIntersecting;
       },
-      {
-        threshold: 0.1,
-      }
+      { threshold: 0.15 }
     );
 
     intersectionObserver.observe(canvas);
 
+    /* ---------- Cleanup ---------- */
     return () => {
       resizeObserver.disconnect();
       intersectionObserver.disconnect();

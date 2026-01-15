@@ -110,19 +110,19 @@ const HeroSection: React.FC = () => {
           <AvatarBadge />
 
           {/* Main Heading */}
-          <h1
+          <div
             ref={headingRef}
             className="text-4xl md:text-7xl font-bold mb-6 leading-tight"
           >
             <div className="line overflow-hidden">
-              <span className="block">Premium Websites for</span>
+              <h1 className="block">Premium Websites for</h1>
             </div>
             <div className="line overflow-hidden">
               <span className="bg-linear-to-r from-text-primary via-accent-primary/80 to-text-primary bg-clip-text text-transparent leading-tight block -mt-2">
                 SaaS & Startups
               </span>
             </div>
-          </h1>
+          </div>
 
           {/* Subheading */}
           <p
