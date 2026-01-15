@@ -10,11 +10,11 @@ import WhyChoose from "./components/WhyChoose";
 
 export const generateMetadata = (): Metadata => {
   return {
-    title: "Creative Web Design & Animation",
+    title: "Algorize Agency - Premium Websites for SaaS & Startups",
     description:
-      "We create bold, animated, and SEO-optimized websites using modern technologies like Next.js and GSAP.",
+      "Every business needs a website, and its never been easier to get one.",
     openGraph: {
-      title: "Creative Web Design & Animation",
+      title: "Algorize Agency - Premium Websites for SaaS & Startups",
       description:
         "High-performance digital experiences built with Next.js and GSAP.",
     },
