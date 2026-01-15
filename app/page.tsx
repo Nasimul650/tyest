@@ -3,12 +3,10 @@ import FeatureProblemSection from "./components/FeatureProblemSection";
 import FeaturedProjects from "./components/FeatureProjects";
 import HeroSection from "./components/Hero";
 import ProcessSection from "./components/ProcessSection";
+import StackSection from "./components/StackSection";
+import Testimonials from "./components/Testimonials";
 import WhatWeDo from "./components/WhatWeDo";
 import WhyChoose from "./components/WhyChoose";
-import Technologies from "./components/TechnologySection";
-import StackSection from "./components/StackSection";
-
-
 
 export const generateMetadata = (): Metadata => {
   return {
@@ -33,6 +31,7 @@ export default function Home() {
       <WhatWeDo />
       <WhyChoose />
       <StackSection />
+      <Testimonials />
     </div>
   );
 }

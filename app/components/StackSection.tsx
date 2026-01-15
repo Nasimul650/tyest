@@ -166,7 +166,9 @@ const Feature3 = () => {
                   .map((to, j) => (
                     <AnimatedBeam
                       key={`${i}-${j}`}
-                      containerRef={containerRef}
+                      containerRef={
+                        containerRef as unknown as RefObject<HTMLElement>
+                      }
                       fromRef={from as unknown as RefObject<HTMLElement>}
                       toRef={to as unknown as RefObject<HTMLElement>}
                       dotted
