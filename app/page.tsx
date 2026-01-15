@@ -31,7 +31,7 @@ export default function Home() {
       <WhatWeDo />
       <WhyChoose />
       <StackSection />
-      <Testimonials />
+      {/* <Testimonials /> */}
     </div>
   );
 }
