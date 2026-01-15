@@ -52,10 +52,10 @@ const AvatarBadge = () => {
       className="
         relative overflow-hidden
         inline-flex items-center gap-3
-        rounded-full px-6 py-3 mb-12
+        rounded-full sm:px-6 px-2 py-3 mb-12
         border border-white/10 backdrop-blur-sm
         transition-transform duration-300 ease-out
-        hover:scale-[1.04] cursor-pointer md:w-md w-96
+        hover:scale-[1.04] cursor-pointer sm:w-md w-92
       "
       style={{
         background:

@@ -215,7 +215,7 @@ const platforms: Platform[] = [
 export default function WhyChoose(): React.JSX.Element {
   return (
     <>
-      <section className="text-white py-12 md:py-20 px-4 md:px-6 lg:px-8 relative bg-black">
+      <section className="text-white pt-12 md:pt-20 px-4 md:px-6 lg:px-8 relative bg-black">
         {/* Decorative background glows with yellow */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -left-40 h-80 w-80 rounded-full bg-accent-primary/15 blur-3xl"></div>

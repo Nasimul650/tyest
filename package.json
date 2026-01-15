@@ -9,12 +9,17 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@tsparticles/react": "^3.0.0",
+    "clsx": "^2.1.1",
+    "cobe": "^0.6.5",
     "gsap": "^3.14.2",
     "lucide-react": "^0.562.0",
     "next": "16.1.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "react-share": "^5.2.2"
+    "react-share": "^5.2.2",
+    "tailwind-merge": "^3.4.0",
+    "tsparticles": "^3.9.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

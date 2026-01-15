@@ -74,7 +74,7 @@ const FeaturedProjects: React.FC = () => {
 
   return (
     <div
-      id="featuredProjects"
+      id="features"
       className="relative bg-black py-20 px-6 overflow-hidden text-left"
     >
       {/* Dark Gradient Background */}
